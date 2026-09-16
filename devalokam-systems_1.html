@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Devalokam Systems — IT consulting, hardware and networking, server management, technical support and annual maintenance contracts. Call 8089282351.">
+<meta name="theme-color" content="#3F3DD6">
+<title>Devalokam Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#FAFAFC; --surface:#FFFFFF; --surface-2:#F2F2F9; --surface-3:#EDEDF7;
+  --ink:#12142A; --ink-2:#464A68; --ink-3:#787D9C;
+  --line:#E2E2EF; --line-strong:#C9C9E1;
+  --indigo:#3F3DD6; --indigo-deep:#2A2890; --indigo-soft:#ECECFD; --indigo-ink:#2A2890;
+  --up:#0F7F58; --warn:#8F5C05;
+  --shadow-sm:0 1px 2px rgba(18,20,42,.06);
+  --shadow-md:0 1px 2px rgba(18,20,42,.05), 0 10px 28px -16px rgba(18,20,42,.30);
+  --shadow-lg:0 2px 4px rgba(18,20,42,.05), 0 22px 50px -24px rgba(31,29,120,.38);
+  --maxw:1160px;
+  --display:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B0C16; --surface:#131527; --surface-2:#1A1C33; --surface-3:#20223D;
+    --ink:#ECECF6; --ink-2:#A9ADC8; --ink-3:#7F84A3;
+    --line:#262943; --line-strong:#383C5C;
+    --indigo:#8F8DFF; --indigo-deep:#B6B4FF; --indigo-soft:#1B1D3C; --indigo-ink:#C3C2FF;
+    --up:#45CE99; --warn:#E0A94F;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.5);
+    --shadow-md:0 1px 2px rgba(0,0,0,.45), 0 10px 28px -16px rgba(0,0,0,.8);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.5), 0 22px 50px -24px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B0C16; --surface:#131527; --surface-2:#1A1C33; --surface-3:#20223D;
+  --ink:#ECECF6; --ink-2:#A9ADC8; --ink-3:#7F84A3;
+  --line:#262943; --line-strong:#383C5C;
+  --indigo:#8F8DFF; --indigo-deep:#B6B4FF; --indigo-soft:#1B1D3C; --indigo-ink:#C3C2FF;
+  --up:#45CE99; --warn:#E0A94F;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.5);
+  --shadow-md:0 1px 2px rgba(0,0,0,.45), 0 10px 28px -16px rgba(0,0,0,.8);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.5), 0 22px 50px -24px rgba(0,0,0,.9);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.62;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{font-family:var(--display); color:var(--ink); margin:0; line-height:1.14; letter-spacing:-.022em; text-wrap:balance}
+h1{font-size:clamp(2.1rem,1.35rem + 2.9vw,3.5rem); font-weight:700; letter-spacing:-.032em}
+h2{font-size:clamp(1.6rem,1.2rem + 1.5vw,2.35rem); font-weight:700; letter-spacing:-.028em}
+h3{font-size:1.125rem; font-weight:600}
+p{margin:0}
+a{color:var(--indigo-ink); text-decoration:none}
+a:hover{text-decoration:underline; text-underline-offset:3px}
+ul{margin:0; padding:0; list-style:none}
+:focus-visible{outline:2.5px solid var(--indigo); outline-offset:3px; border-radius:3px}
+img,svg{max-width:100%}
+
+.wrap{width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:22px}
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--indigo-ink); display:flex; align-items:flex-start; gap:.6rem;
+}
+.eyebrow::before{content:""; width:16px; height:1px; margin-top:.66em; background:var(--indigo); flex:none}
+.lede{font-size:1.06rem; color:var(--ink-2); max-width:62ch}
+.muted{color:var(--ink-3)}
+
+/* ---------- header ---------- */
+.site-head{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:60;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.head-in{display:flex; align-items:center; gap:18px; height:66px}
+.brand{display:flex; align-items:center; gap:11px; color:var(--ink); text-decoration:none; flex:none}
+.brand:hover{text-decoration:none}
+.brand .mark{width:32px; height:32px; flex:none}
+.brand > span{display:flex; flex-direction:column; gap:2px; min-width:0}
+.brand-name{display:block; font-family:var(--display); font-weight:700; font-size:1.02rem; letter-spacing:-.02em; line-height:1.1; white-space:nowrap}
+.brand-sub{display:block; white-space:nowrap; font-family:var(--mono); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); line-height:1}
+.nav{display:flex; align-items:center; gap:4px; margin-left:auto}
+.nav .phone-link{display:none}
+.nav a{
+  font-size:.9rem; font-weight:500; color:var(--ink-2); padding:8px 13px; border-radius:7px;
+  transition:color .16s ease, background .16s ease;
+}
+.nav a:hover{color:var(--ink); background:var(--surface-2); text-decoration:none}
+.nav a[aria-current="page"]{color:var(--indigo-ink); background:var(--indigo-soft)}
+.head-cta{display:flex; align-items:center; gap:10px; flex:none}
+.phone-link{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:.86rem;
+  font-weight:500; color:var(--ink); padding:9px 14px; border:1px solid var(--line-strong);
+  border-radius:8px; transition:border-color .16s ease, background .16s ease;
+}
+.phone-link:hover{border-color:var(--indigo); background:var(--indigo-soft); text-decoration:none}
+.menu-btn{
+  display:none; margin-left:auto; width:42px; height:42px; align-items:center; justify-content:center;
+  background:var(--surface); border:1px solid var(--line-strong); border-radius:9px; color:var(--ink); cursor:pointer;
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  font-family:var(--display); font-weight:600; font-size:.94rem; letter-spacing:-.01em;
+  padding:13px 22px; border-radius:9px; border:1px solid transparent; cursor:pointer;
+  transition:transform .16s ease, box-shadow .18s ease, background .16s ease, border-color .16s ease;
+}
+.btn:hover{text-decoration:none}
+.btn-primary{background:var(--indigo); color:#fff; box-shadow:var(--shadow-md)}
+:root[data-theme="dark"] .btn-primary{color:#0B0C16}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-primary{color:#0B0C16}}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg)}
+.btn-ghost{background:var(--surface); color:var(--ink); border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--indigo); color:var(--indigo-ink); transform:translateY(-2px)}
+.btn svg{flex:none}
+
+/* ---------- sections ---------- */
+.page{padding-block:0}
+.page[hidden]{display:none!important}
+section.band{padding-block:clamp(52px,6vw,88px)}
+.band-tint{background:var(--surface-2); border-block:1px solid var(--line)}
+.sec-head{display:flex; flex-direction:column; gap:14px; max-width:64ch; margin-bottom:38px}
+
+/* ---------- hero ---------- */
+.hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line)}
+.hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(180deg,var(--indigo-soft) 0%,transparent 62%),
+    repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 88px);
+  opacity:.5; mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+}
+.hero-in{position:relative; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:56px; align-items:center; padding-block:clamp(48px,5.6vw,82px)}
+.hero-copy{display:flex; flex-direction:column; gap:22px; align-items:flex-start}
+.hero h1 em{font-style:normal; color:var(--indigo-ink)}
+.hero-actions{display:flex; flex-wrap:wrap; gap:12px; padding-top:4px}
+.trust-row{display:flex; flex-wrap:wrap; gap:10px 26px; padding-top:10px; border-top:1px solid var(--line); width:100%; margin-top:8px}
+.trust-row li{display:flex; align-items:center; gap:8px; font-size:.84rem; color:var(--ink-2)}
+.dot-up{width:7px; height:7px; border-radius:50%; background:var(--up); flex:none; box-shadow:0 0 0 3px color-mix(in srgb,var(--up) 20%,transparent)}
+
+/* ops panel */
+.ops{background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow-lg); overflow:hidden}
+.ops-top{display:flex; align-items:center; gap:10px; padding:13px 16px; border-bottom:1px solid var(--line); background:var(--surface-2)}
+.ops-title{font-family:var(--mono); font-size:.74rem; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-2)}
+.ops-live{margin-left:auto; display:flex; align-items:center; gap:7px; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--up)}
+.pulse{width:7px; height:7px; border-radius:50%; background:var(--up); animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1; transform:scale(1)}50%{opacity:.35; transform:scale(.8)}}
+.ops-row{display:flex; align-items:center; gap:14px; padding:14px 16px; border-bottom:1px solid var(--line)}
+.ops-row:last-child{border-bottom:0}
+.ops-row .ico{width:34px; height:34px; border-radius:8px; background:var(--indigo-soft); color:var(--indigo-ink); display:grid; place-items:center; flex:none}
+.ops-row b{display:block; font-family:var(--display); font-size:.93rem; font-weight:600}
+.ops-row span{display:block; font-size:.79rem; color:var(--ink-3); line-height:1.4}
+.ops-row .val{white-space:nowrap; margin-left:auto; font-family:var(--mono); font-size:.82rem; font-weight:500; color:var(--ink); text-align:right; flex:none}
+.ops-foot{padding:12px 16px; background:var(--surface-2); border-top:1px solid var(--line); font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; color:var(--ink-3)}
+
+/* ---------- service cards ---------- */
+.grid-3{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:18px}
+.svc{
+  display:flex; flex-direction:column; gap:12px; padding:26px 24px 24px;
+  background:var(--surface); border:1px solid var(--line); border-radius:13px;
+  position:relative; transition:transform .2s ease, box-shadow .22s ease, border-color .2s ease;
+}
+.svc::after{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:13px 0 0 13px;
+  background:var(--indigo); opacity:0; transition:opacity .2s ease;
+}
+.svc:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--line-strong)}
+.svc:hover::after{opacity:1}
+.svc .ico{width:40px; height:40px; border-radius:10px; background:var(--indigo-soft); color:var(--indigo-ink); display:grid; place-items:center}
+.svc p{font-size:.92rem; color:var(--ink-2)}
+.svc .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px}
+.tag{font-family:var(--mono); font-size:.68rem; letter-spacing:.05em; color:var(--ink-3); border:1px solid var(--line); border-radius:5px; padding:3px 7px; background:var(--surface-2)}
+
+/* ---------- stats ---------- */
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:13px; overflow:hidden}
+.stat{background:var(--surface); padding:24px 22px; display:flex; flex-direction:column; gap:5px}
+.stat b{font-family:var(--display); font-size:2rem; font-weight:700; letter-spacing:-.035em; font-variant-numeric:tabular-nums; line-height:1}
+.stat span{font-size:.85rem; color:var(--ink-2)}
+.stat i{font-style:normal; font-family:var(--mono); font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
+
+/* ---------- process ---------- */
+.steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0; border:1px solid var(--line); border-radius:13px; overflow:hidden; background:var(--surface)}
+.step{padding:26px 24px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:10px; position:relative}
+.step:last-child{border-right:0}
+.step .n{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; color:var(--indigo-ink); font-weight:500}
+.step p{font-size:.89rem; color:var(--ink-2)}
+
+/* ---------- lists ---------- */
+.check{display:flex; flex-direction:column; gap:11px}
+.check li{display:flex; gap:11px; font-size:.93rem; color:var(--ink-2); align-items:flex-start}
+.check li::before{
+  content:""; flex:none; width:17px; height:17px; margin-top:4px; border-radius:50%;
+  background:var(--indigo-soft) center/11px no-repeat;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%233F3DD6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8.5l3.2 3.2L13 5'/%3E%3C/svg%3E");
+}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:13px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:.9rem}
+th,td{text-align:left; padding:14px 18px; border-bottom:1px solid var(--line); vertical-align:top}
+thead th{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:500; background:var(--surface-2); white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody th{font-family:var(--display); font-weight:600; font-size:.92rem; color:var(--ink); white-space:nowrap}
+td.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+.pill{display:inline-block; font-family:var(--mono); font-size:.68rem; letter-spacing:.06em; padding:3px 8px; border-radius:20px; white-space:nowrap}
+.pill-up{background:color-mix(in srgb,var(--up) 15%,transparent); color:var(--up)}
+.pill-warn{background:color-mix(in srgb,var(--warn) 16%,transparent); color:var(--warn)}
+.pill-ind{background:var(--indigo-soft); color:var(--indigo-ink)}
+
+/* ---------- service detail ---------- */
+.detail{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.85fr); gap:44px; align-items:start; padding-block:clamp(38px,4.4vw,58px); border-bottom:1px solid var(--line)}
+.detail:last-of-type{border-bottom:0}
+.detail-copy{display:flex; flex-direction:column; gap:16px}
+.spec{background:var(--surface); border:1px solid var(--line); border-radius:13px; overflow:hidden; box-shadow:var(--shadow-sm)}
+.spec h4{padding:13px 18px; font-family:var(--mono); font-size:.7rem; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-2); background:var(--surface-2); border-bottom:1px solid var(--line)}
+.spec dl{margin:0; display:grid; grid-template-columns:auto 1fr}
+.spec dt{padding:11px 18px; font-size:.82rem; color:var(--ink-3); border-bottom:1px solid var(--line); white-space:nowrap}
+.spec dd{margin:0; padding:11px 18px; font-family:var(--mono); font-size:.82rem; text-align:right; border-bottom:1px solid var(--line); color:var(--ink)}
+.spec dl > :nth-last-child(-n+2){border-bottom:0}
+
+/* ---------- cta band ---------- */
+.cta-band{background:var(--indigo); color:#fff; border-radius:16px; padding:clamp(30px,4vw,46px); display:flex; flex-wrap:wrap; gap:26px; align-items:center; justify-content:space-between; box-shadow:var(--shadow-lg)}
+.cta-band h2,.cta-band p{color:#fff}
+.cta-band p{opacity:.88; max-width:48ch; margin-top:9px; font-size:.98rem}
+.cta-band .btn-white{background:#fff; color:var(--indigo-deep)}
+.cta-band .btn-white:hover{transform:translateY(-2px)}
+.cta-band .btn-outline{background:transparent; color:#fff; border-color:rgba(255,255,255,.55)}
+.cta-band .btn-outline:hover{background:rgba(255,255,255,.12); border-color:#fff; transform:translateY(-2px)}
+:root[data-theme="dark"] .cta-band{color:#0B0C16}
+:root[data-theme="dark"] .cta-band h2,:root[data-theme="dark"] .cta-band p{color:#0B0C16}
+:root[data-theme="dark"] .cta-band .btn-white{background:#0B0C16; color:var(--indigo-deep)}
+:root[data-theme="dark"] .cta-band .btn-outline{color:#0B0C16; border-color:rgba(11,12,22,.5)}
+:root[data-theme="dark"] .cta-band .btn-outline:hover{background:rgba(11,12,22,.12); border-color:#0B0C16}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .cta-band{color:#0B0C16}
+  :root:not([data-theme="light"]) .cta-band h2,:root:not([data-theme="light"]) .cta-band p{color:#0B0C16}
+  :root:not([data-theme="light"]) .cta-band .btn-white{background:#0B0C16; color:var(--indigo-deep)}
+  :root:not([data-theme="light"]) .cta-band .btn-outline{color:#0B0C16; border-color:rgba(11,12,22,.5)}
+  :root:not([data-theme="light"]) .cta-band .btn-outline:hover{background:rgba(11,12,22,.12); border-color:#0B0C16}
+}
+
+/* ---------- page header ---------- */
+.phead{border-bottom:1px solid var(--line); background:var(--surface-2); padding-block:clamp(38px,4.6vw,62px); position:relative; overflow:hidden}
+.phead::before{content:""; position:absolute; inset:0; background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 88px); opacity:.35; mask-image:linear-gradient(180deg,transparent,#000)}
+.phead .wrap{position:relative}
+.phead-in{display:flex; flex-direction:column; gap:14px; max-width:66ch}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:40px; align-items:start}
+.ccard{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:22px 24px; display:flex; gap:15px; align-items:flex-start; transition:border-color .2s ease, transform .2s ease}
+.ccard:hover{border-color:var(--line-strong); transform:translateY(-2px)}
+.ccard .ico{width:38px; height:38px; border-radius:9px; background:var(--indigo-soft); color:var(--indigo-ink); display:grid; place-items:center; flex:none}
+.ccard b{display:block; font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin-bottom:3px}
+.ccard .big{font-family:var(--display); font-size:1.1rem; font-weight:600; color:var(--ink); letter-spacing:-.015em}
+.ccard p{font-size:.85rem; color:var(--ink-2); margin-top:3px}
+.stack{display:flex; flex-direction:column; gap:14px}
+
+form.enq{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 24px; box-shadow:var(--shadow-md); display:flex; flex-direction:column; gap:16px}
+.field{display:flex; flex-direction:column; gap:6px}
+.field label{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2)}
+.field input,.field select,.field textarea{
+  font-family:var(--body); font-size:.94rem; color:var(--ink); background:var(--paper);
+  border:1px solid var(--line-strong); border-radius:8px; padding:11px 13px; width:100%;
+  transition:border-color .16s ease, box-shadow .16s ease;
+}
+.field textarea{resize:vertical; min-height:96px}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none; border-color:var(--indigo); box-shadow:0 0 0 3px color-mix(in srgb,var(--indigo) 18%,transparent);
+}
+.field .err{font-size:.78rem; color:#C0392B; min-height:0}
+:root[data-theme="dark"] .field .err{color:#FF8B7B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .field .err{color:#FF8B7B}}
+.field[data-invalid="true"] input,.field[data-invalid="true"] select,.field[data-invalid="true"] textarea{border-color:#C0392B}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.formnote{font-size:.78rem; color:var(--ink-3)}
+.sent{background:var(--surface); border:1px solid var(--up); border-radius:14px; padding:28px 26px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow-md)}
+.sent .ico{width:44px; height:44px; border-radius:11px; background:color-mix(in srgb,var(--up) 15%,transparent); color:var(--up); display:grid; place-items:center}
+.sent dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:7px 16px; font-size:.88rem; border-top:1px solid var(--line); padding-top:14px}
+.sent dt{font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding-top:3px}
+.sent dd{margin:0; color:var(--ink-2)}
+
+/* ---------- faq ---------- */
+.faq{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:13px; overflow:hidden; background:var(--surface)}
+details{border-bottom:1px solid var(--line)}
+details:last-child{border-bottom:0}
+summary{
+  list-style:none; cursor:pointer; padding:17px 20px; font-family:var(--display); font-weight:600;
+  font-size:.97rem; display:flex; align-items:center; gap:14px; transition:background .16s ease;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--surface-2)}
+summary::after{content:"+"; margin-left:auto; font-family:var(--mono); font-size:1.15rem; color:var(--indigo-ink); transition:transform .2s ease; flex:none}
+details[open] summary::after{transform:rotate(45deg)}
+details .ans{padding:0 20px 18px; font-size:.92rem; color:var(--ink-2); max-width:72ch}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--line); background:var(--surface-2); padding-block:44px 30px; margin-top:0}
+.foot-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:34px}
+.foot-grid h4{font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:500; margin-bottom:13px}
+.foot-grid li{margin-bottom:8px; font-size:.88rem}
+.foot-grid li a{color:var(--ink-2)}
+.foot-grid li a:hover{color:var(--indigo-ink)}
+.foot-about p{font-size:.88rem; color:var(--ink-2); margin-top:12px; max-width:36ch}
+.foot-bar{display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:space-between; align-items:center; margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink-3)}
+.foot-bar .mono{font-family:var(--mono); font-size:.74rem; letter-spacing:.05em}
+
+/* ---------- responsive ---------- */
+@media (max-width:920px){
+  .hero-in,.detail,.contact-grid{grid-template-columns:1fr; gap:34px}
+  .step{border-right:0; border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .foot-grid{grid-template-columns:1fr 1fr; gap:28px}
+}
+@media (max-width:760px){
+  .menu-btn{display:flex}
+  .head-cta{display:none}
+  .nav{
+    position:absolute; left:0; right:0; top:100%; margin:0; flex-direction:column; align-items:stretch; gap:2px;
+    background:var(--surface); border-bottom:1px solid var(--line); padding:10px 16px 16px; box-shadow:var(--shadow-md);
+  }
+  .nav a{padding:12px 14px; font-size:.97rem}
+  .nav .phone-link{display:inline-flex; margin-top:8px; justify-content:center}
+  .head-in{position:relative}
+}
+@media (max-width:520px){
+  .wrap{padding-inline:18px}
+  .brand-sub{display:none}
+  .ops-row{gap:10px; padding:12px 13px}
+  .ops-row .val{font-size:.76rem}
+  .row2{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .cta-band{flex-direction:column; align-items:flex-start}
+  .hero-actions .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
+}
+</style>
+<style>
+@media (max-width:760px){
+  .nav{display:none}
+  .nav.open{display:flex}
+}
+</style>
+<style>
+:root{color-scheme:light dark; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
+html{-webkit-text-size-adjust:100%}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-consult" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 5h18M3 5v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5M9 20h6M12 16v4"/><path d="M7.5 12.5l2.6-3.2 2.1 2.1 3.6-4.3"/>
+    </symbol>
+    <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="14" width="5" height="5" rx="1"/><rect x="16" y="14" width="5" height="5" rx="1"/><rect x="9.5" y="3" width="5" height="5" rx="1"/>
+      <path d="M12 8v3M5.5 14v-3h13v3"/>
+    </symbol>
+    <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3.5" width="18" height="6" rx="1.6"/><rect x="3" y="14.5" width="18" height="6" rx="1.6"/>
+      <path d="M6.6 6.5h.01M6.6 17.5h.01M10 6.5h4M10 17.5h4"/>
+    </symbol>
+    <symbol id="i-support" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="2.5" y="13" width="4" height="6" rx="1.6"/><rect x="17.5" y="13" width="4" height="6" rx="1.6"/>
+      <path d="M20 19v.6a2.4 2.4 0 0 1-2.4 2.4H13"/>
+    </symbol>
+    <symbol id="i-amc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.5 7.5 12 3 3.5 7.5v5c0 4.7 3.5 7.6 8.5 9 5-1.4 8.5-4.3 8.5-9v-5Z"/><path d="m8.8 12 2.3 2.3 4.3-4.6"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 7.5 12 3.5 4 7.5v5c0 4.7 3.3 7.7 8 9 4.7-1.3 8-4.3 8-9v-5Z"/><path d="M12 9.5v3.2"/><path d="M12 15.8h.01"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.2 3.5h3l1.5 3.8-2 1.4a12 12 0 0 0 5.6 5.6l1.4-2 3.8 1.5v3a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 4.2 5.7a2 2 0 0 1 2-2.2Z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.8" y="5" width="18.4" height="14" rx="2.2"/><path d="m3.4 7 7.5 5.4a2 2 0 0 0 2.2 0L20.6 7"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 10.3c0 5.2-7 11.2-7 11.2s-7-6-7-11.2a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10.2" r="2.6"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.8"/><path d="M12 7v5.2l3.2 2"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m4.5 12.5 4.6 4.6L19.5 6.8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#/" data-link>
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="30" height="30" rx="8" fill="var(--indigo)"/>
+        <rect x="7" y="8" width="18" height="4.2" rx="1.4" fill="#fff" opacity=".95"/>
+        <rect x="7" y="14" width="18" height="4.2" rx="1.4" fill="#fff" opacity=".65"/>
+        <rect x="7" y="20" width="11" height="4.2" rx="1.4" fill="#fff" opacity=".4"/>
+        <circle cx="22" cy="22.1" r="2.1" fill="#fff"/>
+      </svg>
+      <span>
+        <span class="brand-name">Devalokam Systems</span>
+        <span class="brand-sub">IT Infrastructure &amp; Support</span>
+      </span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <a href="#/" data-link>Home</a>
+      <a href="#/services" data-link>Services</a>
+      <a href="#/about" data-link>About</a>
+      <a href="#/contact" data-link>Contact</a>
+      <a class="phone-link" href="tel:+918089282351">
+        <svg width="15" height="15" aria-hidden="true"><use href="#i-phone"/></svg>8089282351
+      </a>
+    </nav>
+    <div class="head-cta">
+      <a class="phone-link" href="tel:+918089282351">
+        <svg width="15" height="15" aria-hidden="true"><use href="#i-phone"/></svg>8089282351
+      </a>
+      <a class="btn btn-primary" href="#/contact" data-link>Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HOME ================= -->
+<div class="page" id="page-home">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">IT Consulting &amp; Managed Infrastructure</p>
+        <h1>Your systems stay up. <em>We make that our job.</em></h1>
+        <p class="lede">Devalokam Systems plans, builds and maintains the IT that businesses run on — networks, servers, endpoints and the support desk behind them. One accountable partner, defined response times, and engineers who show up onsite.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#/contact" data-link>Book an infrastructure audit <svg width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#/services" data-link>Explore services</a>
+        </div>
+        <ul class="trust-row">
+          <li><span class="dot-up"></span> 4-hour onsite response target</li>
+          <li><span class="dot-up"></span> 24&times;7 monitoring on AMC plans</li>
+          <li><span class="dot-up"></span> Vendor-neutral procurement</li>
+        </ul>
+      </div>
+
+      <div class="ops" role="group" aria-label="Service coverage summary">
+        <div class="ops-top">
+          <span class="ops-title">Coverage snapshot</span>
+          <span class="ops-live"><span class="pulse"></span>Sample</span>
+        </div>
+        <div class="ops-row">
+          <span class="ico"><svg width="18" height="18" aria-hidden="true"><use href="#i-server"/></svg></span>
+          <span><b>Server &amp; virtualisation</b><span>Windows Server, Linux, Hyper-V, VMware</span></span>
+          <span class="val">99.9%<br><span class="muted" style="font-size:.68rem">uptime target</span></span>
+        </div>
+        <div class="ops-row">
+          <span class="ico"><svg width="18" height="18" aria-hidden="true"><use href="#i-network"/></svg></span>
+          <span><b>Network &amp; structured cabling</b><span>Cat6A, managed switching, PoE, firewalls</span></span>
+          <span class="val">P1 &lt; 4h<br><span class="muted" style="font-size:.68rem">onsite</span></span>
+        </div>
+        <div class="ops-row">
+          <span class="ico"><svg width="18" height="18" aria-hidden="true"><use href="#i-support"/></svg></span>
+          <span><b>Helpdesk &amp; endpoint support</b><span>Remote-first, onsite when it needs hands</span></span>
+          <span class="val">&lt; 30 min<br><span class="muted" style="font-size:.68rem">first response</span></span>
+        </div>
+        <div class="ops-row">
+          <span class="ico"><svg width="18" height="18" aria-hidden="true"><use href="#i-amc"/></svg></span>
+          <span><b>Annual Maintenance Contract</b><span>Scheduled visits, spares, patch windows</span></span>
+          <span class="val">3 tiers<br><span class="muted" style="font-size:.68rem">Essential &rarr; Enterprise</span></span>
+        </div>
+        <div class="ops-foot">SLA TARGETS PUBLISHED IN EVERY CONTRACT &mdash; NOT BEST EFFORT</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Five services that cover the whole stack</h2>
+        <p class="lede">Most clients start with one and consolidate the rest as contracts come up for renewal. Everything is delivered by the same engineering team, so nothing falls between vendors.</p>
+      </div>
+      <div class="grid-3">
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-consult"/></svg></span>
+          <h3>IT Consulting</h3>
+          <p>Infrastructure audits, capacity and refresh planning, migration roadmaps and IT budgeting you can take to the board.</p>
+          <div class="tags"><span class="tag">Audit</span><span class="tag">Roadmap</span><span class="tag">Cloud vs on-prem</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-network"/></svg></span>
+          <h3>IT Hardware &amp; Networking</h3>
+          <p>Vendor-neutral procurement, structured cabling, managed switching, Wi-Fi design and firewall deployment — specified, installed and documented.</p>
+          <div class="tags"><span class="tag">Cat6A</span><span class="tag">PoE</span><span class="tag">Wi-Fi survey</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-server"/></svg></span>
+          <h3>Server Management</h3>
+          <p>Build, hardening, patching, virtualisation, backup and restore testing across Windows Server, Linux, Hyper-V and VMware.</p>
+          <div class="tags"><span class="tag">RAID</span><span class="tag">Backups</span><span class="tag">Patch windows</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-support"/></svg></span>
+          <h3>Technical Support</h3>
+          <p>A named helpdesk for your staff — remote-first, escalating to onsite engineers, with every ticket logged against an agreed response window.</p>
+          <div class="tags"><span class="tag">Remote</span><span class="tag">Onsite</span><span class="tag">Ticketed</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-amc"/></svg></span>
+          <h3>AMC &mdash; Annual Maintenance</h3>
+          <p>Preventive maintenance on a calendar, not a crisis. Scheduled visits, monitored alerts, spare handling and quarterly reporting.</p>
+          <div class="tags"><span class="tag">Preventive</span><span class="tag">Monitored</span><span class="tag">Reported</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>Security &amp; Continuity</h3>
+          <p>Endpoint protection, access control, patch compliance and a backup strategy with an RPO and RTO you have actually tested.</p>
+          <div class="tags"><span class="tag">RPO/RTO</span><span class="tag">Endpoint</span><span class="tag">Access control</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our commitments</p>
+        <h2>The numbers we write into the contract</h2>
+      </div>
+      <div class="stats">
+        <div class="stat"><i>Priority 1</i><b>4 hrs</b><span>Onsite response for a production outage, within the contracted service area.</span></div>
+        <div class="stat"><i>Helpdesk</i><b>30 min</b><span>First human response to a logged ticket during business hours.</span></div>
+        <div class="stat"><i>Availability</i><b>99.9%</b><span>Uptime target for managed servers on a Standard AMC or above.</span></div>
+        <div class="stat"><i>Reporting</i><b>Quarterly</b><span>Health, incident and capacity review with a named account engineer.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">How an engagement runs</p>
+        <h2>Four stages, in this order</h2>
+        <p class="lede">We do not quote hardware before we understand the load. The audit comes first, every time — it is what makes the rest of the numbers honest.</p>
+      </div>
+      <ol class="steps">
+        <li class="step"><span class="n">STAGE 01</span><h3>Audit</h3><p>We inventory what you run — servers, switches, endpoints, licences, contracts — and document what is at end of life, unpatched or unsupported.</p></li>
+        <li class="step"><span class="n">STAGE 02</span><h3>Design &amp; proposal</h3><p>A written design with sizing, a bill of materials from more than one vendor, a phased cost plan and the SLA we are prepared to sign.</p></li>
+        <li class="step"><span class="n">STAGE 03</span><h3>Deployment</h3><p>Staged rollout inside agreed change windows, with rollback defined before we start and as-built documentation handed over at the end.</p></li>
+        <li class="step"><span class="n">STAGE 04</span><h3>Managed support</h3><p>Monitoring, patching, preventive visits and the helpdesk take over. Quarterly review keeps the roadmap moving instead of going stale.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Why teams consolidate with us</p>
+        <h2>One partner, one phone number, one accountable team</h2>
+      </div>
+      <div class="grid-3">
+        <article class="svc">
+          <h3>Vendor-neutral by policy</h3>
+          <p>We are not a reseller with a quota. Hardware is specified against your workload and quoted from multiple sources, and we will tell you when the cheaper option is the right one.</p>
+        </article>
+        <article class="svc">
+          <h3>Documentation you own</h3>
+          <p>Network diagrams, rack layouts, IP schedules, credentials in your vault, as-built notes. If you ever replace us, you can hand the folder to the next team.</p>
+        </article>
+        <article class="svc">
+          <h3>Engineers, not a call queue</h3>
+          <p>Your account engineer knows your estate. Escalation goes to a person who has stood in your server room, not to a script.</p>
+        </article>
+        <article class="svc">
+          <h3>Backups are tested, not assumed</h3>
+          <p>A backup nobody has restored is a rumour. Restore tests run on a schedule and the result goes into your quarterly report.</p>
+        </article>
+        <article class="svc">
+          <h3>Fixed, predictable AMC pricing</h3>
+          <p>Annual contracts with a defined scope and no surprise callout charges inside that scope, so IT spend stops being a series of shocks.</p>
+        </article>
+        <article class="svc">
+          <h3>Change windows that respect your day</h3>
+          <p>Patching, migrations and cutovers are scheduled out of hours by default. Production downtime is planned, announced and kept short.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Not sure what you are running?</h2>
+          <p>Most clients cannot produce a current inventory on day one — that is normal. Start with an infrastructure audit and you will at least know what you own before you spend anything.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-white" href="#/contact" data-link>Request an audit</a>
+          <a class="btn btn-outline" href="tel:+918089282351">Call 8089282351</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<div class="page" id="page-services" hidden>
+  <section class="phead">
+    <div class="wrap">
+      <div class="phead-in">
+        <p class="eyebrow">Services</p>
+        <h1>Design it, build it, then keep it running</h1>
+        <p class="lede">Five service lines, delivered by one team. Each one can be bought on its own or folded into an Annual Maintenance Contract with a single SLA across the estate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-block-end:0">
+    <div class="wrap">
+
+      <article class="detail" id="svc-consulting">
+        <div class="detail-copy">
+          <p class="eyebrow">Service 01</p>
+          <h2>IT Consulting</h2>
+          <p class="lede">An outside read on what you are running, what it costs you, and what it will cost you to leave it alone. We start with evidence rather than a product recommendation.</p>
+          <ul class="check">
+            <li><strong>Infrastructure audit</strong> — full inventory of servers, network, endpoints, licences and support contracts, with end-of-life and end-of-support dates flagged.</li>
+            <li><strong>Capacity and refresh planning</strong> — storage growth, compute headroom and a three-year replacement schedule you can budget against.</li>
+            <li><strong>Cloud versus on-premise</strong> — a workload-by-workload comparison with real running costs, not a slide that says "cloud first".</li>
+            <li><strong>Migration roadmaps</strong> — sequencing, dependencies, downtime windows and rollback for every move.</li>
+            <li><strong>IT budgeting and vendor review</strong> — what you are paying, what you are getting, and where the overlap is.</li>
+          </ul>
+        </div>
+        <aside class="spec">
+          <h4>Typical engagement</h4>
+          <dl>
+            <dt>Audit duration</dt><dd>1&ndash;3 weeks</dd>
+            <dt>Deliverable</dt><dd>Written report</dd>
+            <dt>Scope covered</dt><dd>Servers, LAN, WAN, endpoints</dd>
+            <dt>Vendor bias</dt><dd>None</dd>
+            <dt>Output feeds</dt><dd>BoM + SLA draft</dd>
+          </dl>
+        </aside>
+      </article>
+
+      <article class="detail" id="svc-network">
+        <div class="detail-copy">
+          <p class="eyebrow">Service 02</p>
+          <h2>IT Hardware &amp; Networking</h2>
+          <p class="lede">Procurement and physical build. Specified against the workload, installed to a standard, and handed over with documentation that somebody else could work from.</p>
+          <ul class="check">
+            <li><strong>Vendor-neutral procurement</strong> — workstations, servers, switches, UPS and peripherals quoted from multiple suppliers with warranty terms compared.</li>
+            <li><strong>Structured cabling</strong> — Cat6 / Cat6A and fibre backbone, labelled patch panels, tested and certified drops, tidy racks.</li>
+            <li><strong>Managed switching and PoE</strong> — VLAN design, link aggregation, PoE budgeting for cameras, access points and IP phones.</li>
+            <li><strong>Wi-Fi design</strong> — predictive and onsite surveys, access point placement, roaming and guest network separation.</li>
+            <li><strong>Firewalls and edge</strong> — perimeter policy, site-to-site and remote-access VPN, dual-WAN failover.</li>
+          </ul>
+        </div>
+        <aside class="spec">
+          <h4>Build standards</h4>
+          <dl>
+            <dt>Cabling</dt><dd>Cat6A / OM4 fibre</dd>
+            <dt>Drop testing</dt><dd>100% certified</dd>
+            <dt>Rack layout</dt><dd>Documented per RU</dd>
+            <dt>Labelling</dt><dd>Both ends, schedule</dd>
+            <dt>Handover</dt><dd>As-built pack</dd>
+          </dl>
+        </aside>
+      </article>
+
+      <article class="detail" id="svc-server">
+        <div class="detail-copy">
+          <p class="eyebrow">Service 03</p>
+          <h2>Server Management</h2>
+          <p class="lede">The part of the estate where an unnoticed problem becomes an expensive one. Built properly, patched on a schedule, monitored continuously, and backed up in a way that has actually been restored.</p>
+          <ul class="check">
+            <li><strong>Build and hardening</strong> — Windows Server and Linux, baseline configuration, least-privilege accounts, unused services closed.</li>
+            <li><strong>Virtualisation</strong> — Hyper-V and VMware host sizing, consolidation, resource allocation and snapshot policy.</li>
+            <li><strong>Patch management</strong> — tested patch rings and scheduled maintenance windows, with a rollback position before anything is applied.</li>
+            <li><strong>Backup and disaster recovery</strong> — 3-2-1 backup design, defined RPO and RTO, and restore tests on a calendar with documented results.</li>
+            <li><strong>Monitoring and alerting</strong> — CPU, memory, disk, RAID health, service state and backup job status, with alerts routed to an engineer.</li>
+            <li><strong>Directory and mail</strong> — Active Directory, group policy, Microsoft 365 tenant and mailbox administration.</li>
+          </ul>
+        </div>
+        <aside class="spec">
+          <h4>Managed server defaults</h4>
+          <dl>
+            <dt>Monitoring</dt><dd>24&times;7, 5-min poll</dd>
+            <dt>Patch cadence</dt><dd>Monthly + critical</dd>
+            <dt>Backup RPO</dt><dd>From 1 hour</dd>
+            <dt>Restore test</dt><dd>Quarterly</dd>
+            <dt>Uptime target</dt><dd>99.9%</dd>
+          </dl>
+        </aside>
+      </article>
+
+      <article class="detail" id="svc-support">
+        <div class="detail-copy">
+          <p class="eyebrow">Service 04</p>
+          <h2>Technical Support</h2>
+          <p class="lede">A helpdesk your staff will actually use. Remote-first because it is faster, onsite the moment a problem needs hands on hardware, and every ticket measured against an agreed window.</p>
+          <ul class="check">
+            <li><strong>Remote helpdesk</strong> — phone, email and ticket intake, with secure remote sessions for desktops, laptops and servers.</li>
+            <li><strong>Onsite engineering</strong> — dispatched for hardware faults, cabling, installations and anything remote support cannot close.</li>
+            <li><strong>Endpoint lifecycle</strong> — imaging, joining, software deployment, user onboarding and offboarding, secure device disposal.</li>
+            <li><strong>Printer, peripheral and AV support</strong> — the unglamorous things that stop a floor working.</li>
+            <li><strong>Escalation and root cause</strong> — a named engineer owns the ticket to closure, and repeat incidents get a written cause, not just another fix.</li>
+          </ul>
+        </div>
+        <aside class="spec">
+          <h4>Response targets</h4>
+          <dl>
+            <dt>First response</dt><dd>&lt; 30 min</dd>
+            <dt>P1 &mdash; outage</dt><dd>4 h onsite</dd>
+            <dt>P2 &mdash; degraded</dt><dd>Same business day</dd>
+            <dt>P3 &mdash; single user</dt><dd>Next business day</dd>
+            <dt>P4 &mdash; request</dt><dd>3 business days</dd>
+          </dl>
+        </aside>
+      </article>
+
+      <article class="detail" id="svc-amc">
+        <div class="detail-copy">
+          <p class="eyebrow">Service 05</p>
+          <h2>AMC &mdash; Annual Maintenance Contracts</h2>
+          <p class="lede">Preventive maintenance on a calendar instead of a crisis, at a fixed annual cost. Three tiers, scoped to the size of the estate and how much downtime you can absorb.</p>
+          <ul class="check">
+            <li><strong>Scheduled preventive visits</strong> — physical inspection, cleaning, thermal checks, firmware review, cable and rack tidy.</li>
+            <li><strong>Included remedial labour</strong> — no callout charge for anything inside contracted scope.</li>
+            <li><strong>Spare handling</strong> — warranty claims managed on your behalf; critical spares held for Enterprise tier estates.</li>
+            <li><strong>Quarterly health report</strong> — incidents, patch compliance, backup results, capacity trend and next-quarter recommendations.</li>
+          </ul>
+        </div>
+        <aside class="spec">
+          <h4>Contract shape</h4>
+          <dl>
+            <dt>Term</dt><dd>12 months</dd>
+            <dt>Billing</dt><dd>Annual or quarterly</dd>
+            <dt>Scope</dt><dd>Fixed, itemised</dd>
+            <dt>Callout inside scope</dt><dd>Included</dd>
+            <dt>Review</dt><dd>Quarterly</dd>
+          </dl>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">AMC tiers</p>
+        <h2>Compare the three maintenance tiers</h2>
+        <p class="lede">Pick the tier by how long you can afford to be down. Scope is itemised in the contract, so what is and is not included is never a conversation you have during an outage.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <caption class="visually-hidden">Comparison of Essential, Standard and Enterprise annual maintenance tiers</caption>
+          <thead>
+            <tr><th scope="col">Inclusion</th><th scope="col">Essential</th><th scope="col">Standard</th><th scope="col">Enterprise</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Preventive site visits</th><td class="num">2 / year</td><td class="num">4 / year</td><td class="num">12 / year</td></tr>
+            <tr><th scope="row">Helpdesk coverage</th><td>Business hours</td><td>Extended, 8&ndash;20</td><td><span class="pill pill-ind">24&times;7</span></td></tr>
+            <tr><th scope="row">P1 onsite response</th><td class="num">Next business day</td><td class="num">8 hours</td><td class="num">4 hours</td></tr>
+            <tr><th scope="row">Remote monitoring</th><td><span class="pill pill-warn">Not included</span></td><td><span class="pill pill-up">Servers</span></td><td><span class="pill pill-up">Servers + network</span></td></tr>
+            <tr><th scope="row">Patch management</th><td>On request</td><td>Monthly windows</td><td>Monthly + critical out-of-band</td></tr>
+            <tr><th scope="row">Backup restore testing</th><td><span class="pill pill-warn">Not included</span></td><td class="num">Half-yearly</td><td class="num">Quarterly</td></tr>
+            <tr><th scope="row">Critical spares held</th><td><span class="pill pill-warn">No</span></td><td>On request</td><td><span class="pill pill-up">Yes</span></td></tr>
+            <tr><th scope="row">Reporting</th><td>Visit report</td><td>Quarterly review</td><td>Quarterly review + roadmap</td></tr>
+            <tr><th scope="row">Named account engineer</th><td><span class="pill pill-warn">Shared pool</span></td><td><span class="pill pill-up">Yes</span></td><td><span class="pill pill-up">Yes, plus backup engineer</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="formnote" style="margin-top:14px">Pricing depends on site count, device count and service area. Send us a rough inventory and we will come back with an itemised quote.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Tell us what is breaking</h2>
+          <p>A short call is usually enough to work out whether you need a project, a contract, or just one engineer for an afternoon.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-white" href="#/contact" data-link>Send an enquiry</a>
+          <a class="btn btn-outline" href="tel:+918089282351">Call 8089282351</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" id="page-about" hidden>
+  <section class="phead">
+    <div class="wrap">
+      <div class="phead-in">
+        <p class="eyebrow">About</p>
+        <h1>A small team that answers for the whole estate</h1>
+        <p class="lede">Devalokam Systems exists because most businesses end up with three vendors, four contracts and nobody who can say why the network is slow. We take the whole thing and put one name against it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="detail" style="border-bottom:0; padding-block-start:0">
+        <div class="detail-copy">
+          <p class="eyebrow">How we work</p>
+          <h2>Evidence first, then equipment</h2>
+          <p class="lede">Every engagement begins with an audit, and the audit is a document you keep whether or not you go on to buy anything from us. That order matters: it is the difference between a proposal built on your actual load and one built on a price list.</p>
+          <p style="color:var(--ink-2); font-size:.95rem">We stay vendor-neutral on purpose. Being tied to one manufacturer's targets changes what gets recommended, and it is not a conflict we want sitting inside a support relationship. Where a manufacturer's own service is the right answer, we will say so and manage the claim for you rather than resell something you do not need.</p>
+          <p style="color:var(--ink-2); font-size:.95rem">And we document as we go. Rack layouts by RU, IP schedules, VLAN maps, patch panel schedules, as-built diagrams, credentials in a vault you control. If you replace us, you can hand the folder to whoever comes next — that is the standard we hold ourselves to.</p>
+        </div>
+        <aside class="spec">
+          <h4>At a glance</h4>
+          <dl>
+            <dt>Focus</dt><dd>SMB &amp; mid-market IT</dd>
+            <dt>Model</dt><dd>Project + AMC</dd>
+            <dt>Procurement</dt><dd>Vendor-neutral</dd>
+            <dt>Coverage</dt><dd>Kerala, India</dd>
+            <dt>Onsite</dt><dd>Scheduled + emergency</dd>
+            <dt>Contact</dt><dd>8089282351</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Capabilities</p>
+        <h2>The disciplines on the team</h2>
+        <p class="lede">Small enough that you speak to the engineer who did the work, broad enough that one contract covers the estate.</p>
+      </div>
+      <div class="grid-3">
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-server"/></svg></span>
+          <h3>Systems engineering</h3>
+          <p>Windows Server and Linux administration, Active Directory and group policy, Hyper-V and VMware, Microsoft 365 tenant management, storage and RAID.</p>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-network"/></svg></span>
+          <h3>Network engineering</h3>
+          <p>VLAN and routing design, managed switching, enterprise Wi-Fi, firewall policy, site-to-site and remote-access VPN, dual-WAN failover.</p>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>Security &amp; continuity</h3>
+          <p>Endpoint protection, patch compliance, access control and privilege review, backup architecture with tested RPO and RTO targets.</p>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-support"/></svg></span>
+          <h3>Service desk</h3>
+          <p>Ticketed intake, remote support tooling, endpoint imaging and deployment, user onboarding and offboarding, asset tracking.</p>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-consult"/></svg></span>
+          <h3>Infrastructure consulting</h3>
+          <p>Audits, capacity planning, refresh scheduling, cloud and on-premise cost modelling, vendor and contract review.</p>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-amc"/></svg></span>
+          <h3>Physical infrastructure</h3>
+          <p>Structured cabling and certification, rack build and cable management, UPS sizing, server room cooling and power review.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Who we work with</p>
+        <h2>Sectors we know the constraints of</h2>
+      </div>
+      <div class="grid-3">
+        <article class="svc"><h3>Healthcare &amp; clinics</h3><p>Practice management systems that cannot be offline during consulting hours, and patient data that has to stay where it belongs.</p></article>
+        <article class="svc"><h3>Education</h3><p>Dense Wi-Fi in classrooms and labs, filtered access, shared device fleets, and a summer window that is the only time to do major work.</p></article>
+        <article class="svc"><h3>Manufacturing &amp; warehousing</h3><p>Shop-floor networks, barcode and handheld infrastructure, and equipment that lives in dust and heat rather than a comfortable rack room.</p></article>
+        <article class="svc"><h3>Retail &amp; hospitality</h3><p>Multi-site POS uptime, guest Wi-Fi separated from the payment network, and support hours that match trading hours.</p></article>
+        <article class="svc"><h3>Professional services</h3><p>Document-heavy estates, matter and case data, remote-access for staff who work from client sites, and audit expectations on access control.</p></article>
+        <article class="svc"><h3>Logistics</h3><p>Branch and depot connectivity, WAN failover so despatch never stops, and remote sites with nobody technical on the ground.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Want to see how we would approach your estate?</h2>
+          <p>Book an infrastructure audit. You get a written report on what you are running and what needs attention — useful to you regardless of what you do next.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-white" href="#/contact" data-link>Get in touch</a>
+          <a class="btn btn-outline" href="tel:+918089282351">Call 8089282351</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" id="page-contact" hidden>
+  <section class="phead">
+    <div class="wrap">
+      <div class="phead-in">
+        <p class="eyebrow">Contact</p>
+        <h1>Talk to an engineer, not a form queue</h1>
+        <p class="lede">Call if something is down right now — that is always faster. For everything else, send the details and we will come back with next steps and a rough scope.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="stack">
+          <a class="ccard" href="tel:+918089282351">
+            <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <span><b>Phone</b><span class="big">8089282351</span><p>Fastest route for an outage. Business hours for new enquiries; 24&times;7 for Enterprise AMC clients.</p></span>
+          </a>
+          <a class="ccard" href="mailto:info@devalokamsystems.com">
+            <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span><b>Email</b><span class="big">info@devalokamsystems.com</span><p>Send an inventory, a floor plan or a current contract and we can quote against it.</p></span>
+          </a>
+          <div class="ccard">
+            <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <span><b>Service area</b><span class="big">Kerala, India</span><p>Onsite engineering across Kerala, with remote support available anywhere in India. Sites outside the standard area are covered by arrangement.</p></span>
+          </div>
+          <div class="ccard">
+            <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-clock"/></svg></span>
+            <span><b>Hours</b><span class="big">Mon&ndash;Sat, 9:00&ndash;18:30</span><p>Extended and 24&times;7 cover available on Standard and Enterprise maintenance contracts.</p></span>
+          </div>
+        </div>
+
+        <div>
+          <form class="enq" id="enqForm" novalidate>
+            <div>
+              <h2 style="font-size:1.32rem">Send an enquiry</h2>
+              <p class="formnote" style="margin-top:6px">Tell us roughly what you run and what is going wrong. We reply within one business day.</p>
+            </div>
+            <div class="row2">
+              <div class="field" id="f-name">
+                <label for="enq-name">Your name</label>
+                <input id="enq-name" name="name" type="text" autocomplete="name" placeholder="Anil Menon">
+                <span class="err" id="e-name" aria-live="polite"></span>
+              </div>
+              <div class="field" id="f-company">
+                <label for="enq-company">Company</label>
+                <input id="enq-company" name="company" type="text" autocomplete="organization" placeholder="Company name">
+                <span class="err" id="e-company" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="row2">
+              <div class="field" id="f-phone">
+                <label for="enq-phone">Phone</label>
+                <input id="enq-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile">
+                <span class="err" id="e-phone" aria-live="polite"></span>
+              </div>
+              <div class="field" id="f-email">
+                <label for="enq-email">Email</label>
+                <input id="enq-email" name="email" type="email" autocomplete="email" placeholder="you@company.com">
+                <span class="err" id="e-email" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="field" id="f-service">
+              <label for="enq-service">What do you need?</label>
+              <select id="enq-service" name="service">
+                <option value="">Select a service</option>
+                <option>IT consulting / infrastructure audit</option>
+                <option>IT hardware &amp; networking</option>
+                <option>Server management</option>
+                <option>Technical support / helpdesk</option>
+                <option>Annual Maintenance Contract (AMC)</option>
+                <option>Something else</option>
+              </select>
+              <span class="err" id="e-service" aria-live="polite"></span>
+            </div>
+            <div class="field" id="f-msg">
+              <label for="enq-msg">Details</label>
+              <textarea id="enq-msg" name="message" placeholder="Roughly how many users and sites, what servers or network gear you run, and what is prompting the enquiry."></textarea>
+              <span class="err" id="e-msg" aria-live="polite"></span>
+            </div>
+            <button class="btn btn-primary" type="submit" style="align-self:flex-start">Send enquiry <svg width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <p class="formnote">Urgent outage? Calling <a href="tel:+918089282351">8089282351</a> gets an engineer faster than this form.</p>
+          </form>
+
+          <div class="sent" id="enqSent" hidden role="status">
+            <span class="ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <div>
+              <h2 style="font-size:1.28rem">Enquiry ready to send</h2>
+              <p class="formnote" style="margin-top:7px">Here is what you entered. Use the button below to send it from your own mail app, or call us directly — either way an engineer will pick it up.</p>
+            </div>
+            <dl id="enqSummary"></dl>
+            <div class="hero-actions" style="padding-top:0">
+              <a class="btn btn-primary" id="enqMailto" href="mailto:info@devalokamsystems.com">Send by email</a>
+              <a class="btn btn-ghost" href="tel:+918089282351">Call 8089282351</a>
+              <button class="btn btn-ghost" type="button" id="enqEdit">Edit enquiry</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Before you call</p>
+        <h2>Questions we get asked first</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>How quickly can you get someone onsite?</summary>
+          <div class="ans">For contracted clients, within the response window in their tier — four hours for a Priority 1 outage on Enterprise AMC, eight hours on Standard. For non-contracted callouts we schedule against current load and will give you a realistic time on the phone rather than an optimistic one.</div>
+        </details>
+        <details>
+          <summary>Do we have to sign an AMC to get support?</summary>
+          <div class="ans">No. Project work and ad-hoc callouts are available on their own. An AMC mainly buys you a committed response time, preventive visits and predictable annual cost — it makes sense once downtime starts costing more than the contract.</div>
+        </details>
+        <details>
+          <summary>Will you work with the hardware we already have?</summary>
+          <div class="ans">Yes, and that is usually where we start. The audit tells us what is still supported and what is past end of life. We would rather extend the life of working equipment and replace things in a planned sequence than propose a rip-and-replace.</div>
+        </details>
+        <details>
+          <summary>Can you take over from our current IT provider?</summary>
+          <div class="ans">Regularly. We run a transition audit, document the estate as we find it, take control of credentials into a vault you own, and agree a cutover date. Nothing is switched until the documentation is complete on our side.</div>
+        </details>
+        <details>
+          <summary>What does an infrastructure audit cost?</summary>
+          <div class="ans">It depends on site count and device count, and we quote it as a fixed fee before we start. The written report is yours to keep whether or not you continue with us.</div>
+        </details>
+        <details>
+          <summary>Do you support remote and branch offices?</summary>
+          <div class="ans">Yes. Most issues at remote sites are resolved by remote support and monitoring. For sites outside the standard onsite area we agree a coverage arrangement in the contract, so there is no ambiguity when something breaks.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="#/" data-link>
+          <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="30" height="30" rx="8" fill="var(--indigo)"/>
+            <rect x="7" y="8" width="18" height="4.2" rx="1.4" fill="#fff" opacity=".95"/>
+            <rect x="7" y="14" width="18" height="4.2" rx="1.4" fill="#fff" opacity=".65"/>
+            <rect x="7" y="20" width="11" height="4.2" rx="1.4" fill="#fff" opacity=".4"/>
+            <circle cx="22" cy="22.1" r="2.1" fill="#fff"/>
+          </svg>
+          <span><span class="brand-name">Devalokam Systems</span><span class="brand-sub">IT Infrastructure &amp; Support</span></span>
+        </a>
+        <p>IT consulting, hardware and networking, server management, technical support and annual maintenance — delivered by one accountable team.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#/services" data-link>IT Consulting</a></li>
+          <li><a href="#/services" data-link>Hardware &amp; Networking</a></li>
+          <li><a href="#/services" data-link>Server Management</a></li>
+          <li><a href="#/services" data-link>Technical Support</a></li>
+          <li><a href="#/services" data-link>AMC Contracts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#/" data-link>Home</a></li>
+          <li><a href="#/about" data-link>About us</a></li>
+          <li><a href="#/about" data-link>Industries</a></li>
+          <li><a href="#/contact" data-link>Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+918089282351">8089282351</a></li>
+          <li><a href="mailto:info@devalokamsystems.com">info@devalokamsystems.com</a></li>
+          <li class="muted">Kerala, India</li>
+          <li class="muted">Mon&ndash;Sat, 9:00&ndash;18:30 IST</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>&copy; <span id="yr">2026</span> Devalokam Systems. All rights reserved.</span>
+      <span class="mono">SLA-BACKED IT SUPPORT &middot; VENDOR-NEUTRAL PROCUREMENT</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+.visually-hidden{position:absolute!important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+</style>
+
+<script>
+(function () {
+  var PAGES = {
+    '/':         { el: 'page-home',     title: 'Devalokam Systems' },
+    '/services': { el: 'page-services', title: 'Services — Devalokam Systems' },
+    '/about':    { el: 'page-about',    title: 'About — Devalokam Systems' },
+    '/contact':  { el: 'page-contact',  title: 'Contact — Devalokam Systems' }
+  };
+  var nav = document.getElementById('primaryNav');
+  var menuBtn = document.getElementById('menuBtn');
+
+  function routeOf() {
+    var h = (location.hash || '').replace(/^#/, '');
+    if (!h || h === '/' || h.charAt(0) !== '/') return '/';
+    h = h.replace(/\/+$/, '') || '/';
+    return PAGES[h] ? h : '/';
+  }
+
+  function render(scroll) {
+    var route = routeOf();
+    Object.keys(PAGES).forEach(function (key) {
+      var el = document.getElementById(PAGES[key].el);
+      if (el) el.hidden = (key !== route);
+    });
+    document.title = PAGES[route].title;
+    document.querySelectorAll('a[data-link]').forEach(function (a) {
+      var target = a.getAttribute('href').replace(/^#/, '') || '/';
+      if (target === route) { a.setAttribute('aria-current', 'page'); }
+      else { a.removeAttribute('aria-current'); }
+    });
+    closeMenu();
+    if (scroll) {
+      window.scrollTo({ top: 0, behavior: (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth') });
+    }
+  }
+
+  function closeMenu() {
+    if (!nav || !menuBtn) return;
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open menu');
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  }
+
+  window.addEventListener('hashchange', function () { render(true); });
+  render(false);
+
+  var y = document.getElementById('yr');
+  if (y) y.textContent = String(new Date().getFullYear());
+
+  /* ---- enquiry form ---- */
+  var form = document.getElementById('enqForm');
+  var sent = document.getElementById('enqSent');
+  var summary = document.getElementById('enqSummary');
+  var mailto = document.getElementById('enqMailto');
+  var editBtn = document.getElementById('enqEdit');
+
+  function setError(fieldId, errId, message) {
+    var field = document.getElementById(fieldId);
+    var err = document.getElementById(errId);
+    if (!field || !err) return;
+    if (message) { field.setAttribute('data-invalid', 'true'); err.textContent = message; }
+    else { field.removeAttribute('data-invalid'); err.textContent = ''; }
+  }
+
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var name = document.getElementById('enq-name').value.trim();
+      var company = document.getElementById('enq-company').value.trim();
+      var phone = document.getElementById('enq-phone').value.trim();
+      var email = document.getElementById('enq-email').value.trim();
+      var service = document.getElementById('enq-service').value;
+      var message = document.getElementById('enq-msg').value.trim();
+      var ok = true, firstBad = null;
+
+      if (name.length < 2) { setError('f-name', 'e-name', 'Enter your name so we know who to ask for.'); ok = false; firstBad = firstBad || 'enq-name'; }
+      else setError('f-name', 'e-name', '');
+
+      setError('f-company', 'e-company', '');
+
+      var digits = phone.replace(/\D/g, '');
+      if (digits.length < 10) { setError('f-phone', 'e-phone', 'Enter a phone number with at least 10 digits.'); ok = false; firstBad = firstBad || 'enq-phone'; }
+      else setError('f-phone', 'e-phone', '');
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setError('f-email', 'e-email', 'Enter an email address we can reply to.'); ok = false; firstBad = firstBad || 'enq-email'; }
+      else setError('f-email', 'e-email', '');
+
+      if (!service) { setError('f-service', 'e-service', 'Pick the service closest to what you need.'); ok = false; firstBad = firstBad || 'enq-service'; }
+      else setError('f-service', 'e-service', '');
+
+      if (message.length < 15) { setError('f-msg', 'e-msg', 'A sentence or two about your setup helps us reply usefully.'); ok = false; firstBad = firstBad || 'enq-msg'; }
+      else setError('f-msg', 'e-msg', '');
+
+      if (!ok) { var bad = document.getElementById(firstBad); if (bad) bad.focus(); return; }
+
+      var rows = [
+        ['Name', name],
+        ['Company', company || 'Not given'],
+        ['Phone', phone],
+        ['Email', email],
+        ['Service', service],
+        ['Details', message]
+      ];
+      summary.innerHTML = '';
+      rows.forEach(function (r) {
+        var dt = document.createElement('dt'); dt.textContent = r[0];
+        var dd = document.createElement('dd'); dd.textContent = r[1];
+        summary.appendChild(dt); summary.appendChild(dd);
+      });
+
+      var body = rows.map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
+      mailto.href = 'mailto:info@devalokamsystems.com'
+        + '?subject=' + encodeURIComponent('Enquiry — ' + service + ' — ' + (company || name))
+        + '&body=' + encodeURIComponent(body);
+
+      form.hidden = true;
+      sent.hidden = false;
+      sent.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    });
+  }
+
+  if (editBtn) {
+    editBtn.addEventListener('click', function () {
+      sent.hidden = true;
+      form.hidden = false;
+      document.getElementById('enq-name').focus();
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
