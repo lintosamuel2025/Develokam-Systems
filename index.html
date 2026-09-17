@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Devalokam Systems — your security is our priority. IT consulting, hardware and networking, server management, technical support and annual maintenance contracts. Call or WhatsApp 8089282351.">
+<meta name="description" content="Devalokam Systems — your security is our priority. IT consulting, networking, server management, support, AMC, cyber security, CCTV, automation gates and solar. Call or WhatsApp 8089282351.">
 <meta name="theme-color" content="#14110A">
 <title>Devalokam Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,6 +203,7 @@ section.band{padding-block:clamp(52px,6vw,88px)}
 
 /* ---------- service cards ---------- */
 .grid-3{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:18px}
+.grid-2{display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:18px}
 .svc{
   display:flex; flex-direction:column; gap:12px; padding:26px 24px 24px;
   background:var(--surface); border:1px solid var(--line); border-radius:13px;
@@ -293,6 +294,26 @@ td.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:n
 .phead .wrap{position:relative}
 .phead-in{display:flex; flex-direction:column; gap:14px; max-width:66ch}
 
+/* ---------- careers ---------- */
+.vacancy{background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow-md); overflow:hidden}
+.vac-head{display:flex; align-items:center; gap:15px; padding:22px 26px; border-bottom:1px solid var(--line); background:var(--surface-2); flex-wrap:wrap}
+.vac-head .ico{width:42px; height:42px; border-radius:10px; background:var(--accent-soft); color:var(--accent-ink); display:grid; place-items:center; flex:none}
+.vac-title{font-family:var(--serif); font-size:1.5rem; font-weight:600; letter-spacing:-.005em}
+.vac-meta{font-family:var(--mono); font-size:.76rem; letter-spacing:.08em; color:var(--ink-3); margin-top:3px}
+.vac-facts{margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1px; background:var(--line); border-bottom:1px solid var(--line)}
+.vac-facts > div{background:var(--surface); padding:15px 26px}
+.vac-facts dt{font-family:var(--mono); font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
+.vac-facts dd{margin:3px 0 0; font-size:.92rem; font-weight:500}
+.vac-body{padding:26px; display:flex; flex-direction:column; gap:22px}
+.vac-cols{display:grid; grid-template-columns:1fr 1fr; gap:32px}
+.vac-sub{font-family:var(--mono); font-size:.7rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:12px}
+.vac-apply{display:flex; flex-wrap:wrap; gap:22px; align-items:center; justify-content:space-between; padding-top:20px; border-top:1px solid var(--line)}
+@media (max-width:760px){
+  .vac-cols{grid-template-columns:1fr; gap:24px}
+  .vac-head,.vac-body{padding:20px}
+  .vac-facts > div{padding:14px 20px}
+}
+
 /* ---------- contact ---------- */
 .contact-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:40px; align-items:start}
 .ccard{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:22px 24px; display:flex; gap:15px; align-items:flex-start; transition:border-color .2s ease, transform .2s ease}
@@ -377,7 +398,7 @@ details .ans{padding:0 20px 18px; font-size:.92rem; color:var(--ink-2); max-widt
 /* floating action button */
 .wa-fab{
   position:fixed; z-index:70; right:18px;
-  bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  bottom:calc(86px + env(safe-area-inset-bottom,0px));
   display:inline-flex; align-items:center; gap:0; overflow:hidden;
   height:56px; padding:0 15px; border-radius:28px;
   background:var(--wa-strong); color:#fff; box-shadow:0 6px 22px -6px rgba(23,133,63,.55), 0 2px 6px rgba(0,0,0,.18);
@@ -392,7 +413,7 @@ details .ans{padding:0 20px 18px; font-size:.92rem; color:var(--ink-2); max-widt
 .wa-fab:hover .wa-fab-text,.wa-fab:focus-visible .wa-fab-text{max-width:190px; opacity:1}
 .wa-fab:hover,.wa-fab:focus-visible{gap:10px; padding:0 21px 0 17px}
 @media (max-width:760px){
-  .wa-fab{height:52px; padding:0 13px; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+  .wa-fab{height:48px; padding:0 12px; right:16px; bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   .wa-fab svg{width:24px; height:24px}
   .wa-fab .wa-fab-text{display:none}
 }
@@ -400,6 +421,73 @@ details .ans{padding:0 20px 18px; font-size:.92rem; color:var(--ink-2); max-widt
   .wa-fab .wa-fab-text{max-width:190px; opacity:1}
   .wa-fab{gap:10px; padding:0 21px 0 17px}
   @media (max-width:760px){.wa-fab .wa-fab-text{display:none}}
+}
+
+
+/* ---------- chat assistant ---------- */
+.bot[hidden],.bot-fab[hidden],.wa-fab[hidden]{display:none!important}
+.bot-fab{
+  position:fixed; z-index:70; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  width:56px; height:56px; border-radius:50%; border:1px solid rgba(231,193,105,.34);
+  background:#16130C; color:#E7C169; display:grid; place-items:center; cursor:pointer;
+  box-shadow:0 8px 24px -8px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.25);
+  transition:transform .18s ease, box-shadow .2s ease, background .18s ease;
+}
+.bot-fab:hover{transform:translateY(-3px); background:#221D12; box-shadow:0 14px 32px -10px rgba(0,0,0,.6)}
+.bot-fab .dot{
+  position:absolute; top:3px; right:3px; width:12px; height:12px; border-radius:50%;
+  background:#E7C169; border:2px solid #16130C;
+}
+@media (max-width:760px){.bot-fab{width:50px; height:50px; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px))}}
+
+.bot{
+  position:fixed; z-index:80; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  width:min(380px, calc(100vw - 32px)); max-height:min(620px, calc(100dvh - 90px));
+  display:flex; flex-direction:column; overflow:hidden;
+  background:var(--surface); border:1px solid var(--line-strong); border-radius:16px;
+  box-shadow:0 24px 60px -18px rgba(20,16,6,.45), 0 4px 12px rgba(0,0,0,.14);
+}
+.bot-head{display:flex; align-items:center; gap:11px; padding:13px 14px; background:#14110A; color:#F5F0E2; flex:none; position:relative}
+.bot-head::after{content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:linear-gradient(90deg,#8A5F16,#E7C169 38%,#F6E2A8 52%,#C9992F 70%,#7E5510)}
+.bot-head b{display:block; font-family:var(--display); font-size:.94rem; font-weight:600; line-height:1.2}
+.bot-head span.sub{display:block; font-family:var(--mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:#A79B7E; margin-top:2px}
+.bot-x{margin-left:auto; width:32px; height:32px; display:grid; place-items:center; border:0; border-radius:8px; background:rgba(255,255,255,.07); color:#E7C169; cursor:pointer}
+.bot-x:hover{background:rgba(231,193,105,.18)}
+.bot-log{flex:1 1 auto; overflow-y:auto; padding:16px 14px; display:flex; flex-direction:column; gap:10px; background:var(--surface-2)}
+.msg{max-width:86%; padding:10px 13px; border-radius:13px; font-size:.9rem; line-height:1.5; white-space:pre-wrap}
+.msg-bot{align-self:flex-start; background:var(--surface); border:1px solid var(--line); border-bottom-left-radius:4px; color:var(--ink)}
+.msg-me{align-self:flex-end; background:#17140E; color:#F7F2E6; border-bottom-right-radius:4px}
+.bot-foot{flex:none; padding:12px 14px; border-top:1px solid var(--line); background:var(--surface); display:flex; flex-direction:column; gap:9px; max-height:46%; overflow-y:auto}
+.chips{display:flex; flex-wrap:wrap; gap:7px}
+.chip{
+  font-family:var(--body); font-size:.84rem; padding:8px 13px; border-radius:20px; cursor:pointer;
+  background:var(--surface); color:var(--ink); border:1px solid var(--line-strong);
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+.chip:hover{background:var(--accent-soft); border-color:var(--accent); color:var(--accent-ink)}
+.bot-form{display:flex; flex-direction:column; gap:8px}
+.bot-form input,.bot-form textarea{
+  font-family:var(--body); font-size:.88rem; color:var(--ink); background:var(--paper);
+  border:1px solid var(--line-strong); border-radius:8px; padding:9px 11px; width:100%;
+}
+.bot-form textarea{min-height:58px; resize:vertical}
+.bot-form input:focus,.bot-form textarea:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent)}
+.bot-err{font-size:.78rem; color:#B3341F; min-height:1em}
+:root[data-theme="dark"] .bot-err{color:#FF8B7B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bot-err{color:#FF8B7B}}
+.bot-actions{display:flex; flex-wrap:wrap; gap:8px}
+.bot-actions .btn{font-size:.85rem; padding:10px 15px; flex:1 1 auto; justify-content:center}
+.bot-report{
+  align-self:stretch; max-width:100%; background:var(--surface); border:1px solid var(--accent);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow-sm);
+}
+.bot-report h5{margin:0; padding:10px 13px; font-family:var(--mono); font-size:.66rem; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--accent-ink); background:var(--accent-soft); border-bottom:1px solid var(--line)}
+.bot-report dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:6px 12px; padding:12px 13px; font-size:.82rem}
+.bot-report dt{font-family:var(--mono); font-size:.64rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); padding-top:2px}
+.bot-report dd{margin:0; color:var(--ink-2)}
+.bot-note{font-size:.74rem; color:var(--ink-3); line-height:1.45}
+@media (max-width:520px){
+  .bot{right:16px; left:16px; width:auto; bottom:calc(16px + env(safe-area-inset-bottom,0px)); max-height:min(76dvh, 600px)}
 }
 
 /* ---------- responsive ---------- */
@@ -486,6 +574,28 @@ img{max-width:100%}
     <symbol id="i-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/>
     </symbol>
+    <symbol id="i-cctv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.6 8.1 16.2 4l1.5 4.6L5.1 12.7 3.6 8.1Z"/><path d="m17.7 8.6 2.9-.9 1 3-2.9.9"/>
+      <path d="M6.6 12.2 8 16.4M8 20.5h6a2.4 2.4 0 0 0 2.4-2.4v-1.4"/><circle cx="8" cy="20.5" r="1.4"/>
+    </symbol>
+    <symbol id="i-gate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2.5 20.5h19M4.5 20.5V8.2M10.5 20.5V8.2M4.5 8.2h6M4.5 12.3h6M4.5 16.4h6"/>
+      <path d="M14 20.5V8.2h5.5v12.3M14 12.3h5.5M14 16.4h5.5"/><path d="M12.2 5.4h.01"/>
+    </symbol>
+    <symbol id="i-solar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.4 16.6 5.2 9.4h13.6l1.8 7.2H3.4Z"/><path d="M4.6 13h14.8M11.4 9.4l-.7 7.2M12.6 9.4l.7 7.2"/>
+      <path d="M12 2.6v2.2M6.4 4.4l1.2 1.5M17.6 4.4l-1.2 1.5M12 19v2.4"/>
+    </symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.8" y="7.2" width="18.4" height="13" rx="2.2"/><path d="M8.6 7.2V5.6a2 2 0 0 1 2-2h2.8a2 2 0 0 1 2 2v1.6"/><path d="M2.8 12.4h18.4"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.6 12.2c0 4.1-3.8 7.4-8.5 7.4a9.8 9.8 0 0 1-2.6-.35L4.4 20.6l1.2-3.5a7 7 0 0 1-2.2-4.9c0-4.1 3.8-7.4 8.5-7.4s8.7 3.3 8.7 7.4Z"/>
+      <path d="M8.6 11.9h.01M12.1 11.9h.01M15.6 11.9h.01"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </symbol>
     <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
     </symbol>
@@ -511,6 +621,7 @@ img{max-width:100%}
       <a href="#/" data-link>Home</a>
       <a href="#/services" data-link>Services</a>
       <a href="#/about" data-link>About</a>
+      <a href="#/careers" data-link>Careers</a>
       <a href="#/contact" data-link>Contact</a>
       <a class="phone-link" href="tel:+918089282351">
         <svg width="15" height="15" aria-hidden="true"><use href="#i-phone"/></svg>8089282351
@@ -674,6 +785,42 @@ img{max-width:100%}
   <section class="band band-tint">
     <div class="wrap">
       <div class="sec-head">
+        <p class="eyebrow">Beyond core IT</p>
+        <h2>Security, automation and energy</h2>
+        <p class="lede">The same engineers who run your network also handle the systems bolted to the building. One contract, one site visit, one number to call when any of it stops working.</p>
+      </div>
+      <div class="grid-2">
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>Cyber Security</h3>
+          <p>Endpoint protection, firewall and access policy, patch compliance and multi-factor sign-in — backed by the restore testing that decides whether an incident is a bad afternoon or a bad quarter.</p>
+          <div class="tags"><span class="tag">Endpoint</span><span class="tag">Firewall</span><span class="tag">MFA</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-cctv"/></svg></span>
+          <h3>CCTV &amp; Surveillance</h3>
+          <p>IP camera systems with NVR storage, night vision and remote viewing from your phone. Surveyed for coverage, cabled properly, and kept recording — not discovered empty the week you need the footage.</p>
+          <div class="tags"><span class="tag">IP cameras</span><span class="tag">NVR</span><span class="tag">Remote view</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-gate"/></svg></span>
+          <h3>Automation Gates</h3>
+          <p>Automatic sliding and swing gates, boom barriers and shutters — with RFID, keypad or intercom entry, safety sensors, and integration into the same access control your doors already use.</p>
+          <div class="tags"><span class="tag">Sliding &amp; swing</span><span class="tag">RFID</span><span class="tag">Intercom</span></div>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-solar"/></svg></span>
+          <h3>Solar Panel Solutions</h3>
+          <p>Rooftop solar for offices and small plants. Site survey and load assessment, on-grid or hybrid systems with battery backup, and the net-metering paperwork handled — including keeping the server room up when the grid is not.</p>
+          <div class="tags"><span class="tag">On-grid</span><span class="tag">Hybrid</span><span class="tag">Net metering</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
         <p class="eyebrow">Why teams consolidate with us</p>
         <h2>One partner, one phone number, one accountable team</h2>
       </div>
@@ -706,7 +853,7 @@ img{max-width:100%}
     </div>
   </section>
 
-  <section class="band">
+  <section class="band band-tint">
     <div class="wrap">
       <div class="cta-band">
         <div>
@@ -1025,6 +1172,123 @@ img{max-width:100%}
   </section>
 </div>
 
+<!-- ================= CAREERS ================= -->
+<div class="page" id="page-careers" hidden>
+  <section class="phead">
+    <div class="wrap">
+      <div class="phead-in">
+        <p class="eyebrow">Careers</p>
+        <h1>Work where the fix is yours to own</h1>
+        <p class="lede">We are a small field team, which means you will not spend your day closing tickets someone else scoped. You will see the site, diagnose it, fix it, and write down what you did.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Open positions</p>
+        <h2>One vacancy, open now</h2>
+      </div>
+
+      <article class="vacancy">
+        <header class="vac-head">
+          <span class="ico"><svg width="21" height="21" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+          <div>
+            <h3 class="vac-title">IT Technician</h3>
+            <p class="vac-meta">Field role &middot; Kerala, India</p>
+          </div>
+          <span class="pill pill-up" style="margin-left:auto">Open</span>
+        </header>
+
+        <dl class="vac-facts">
+          <div><dt>Employment</dt><dd>Full-time</dd></div>
+          <div><dt>Experience</dt><dd>1&ndash;3 years</dd></div>
+          <div><dt>Base</dt><dd>Kerala, with travel to client sites</dd></div>
+          <div><dt>Reports to</dt><dd>Service delivery lead</dd></div>
+        </dl>
+
+        <div class="vac-body">
+          <p class="lede" style="font-size:.98rem">You are the engineer clients actually meet. Most days are a mix of scheduled preventive visits and whatever broke that morning — a switch that stopped passing traffic, a workstation that will not boot, a camera that dropped off the NVR. You will be given the tools, the documentation and the authority to close it out.</p>
+
+          <div class="vac-cols">
+            <div>
+              <h4 class="vac-sub">What you will do</h4>
+              <ul class="check">
+                <li>Install, configure and troubleshoot desktops, laptops, printers and peripherals at client sites.</li>
+                <li>Terminate, test and label structured cabling; rack and patch switches, NVRs and UPS units.</li>
+                <li>Handle first- and second-line support — remote first, onsite when it needs hands.</li>
+                <li>Carry out scheduled preventive maintenance visits and write the visit report.</li>
+                <li>Assist on server, firewall, CCTV and gate automation installations alongside senior engineers.</li>
+                <li>Keep asset records, rack diagrams and IP schedules current after every change.</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="vac-sub">What we are looking for</h4>
+              <ul class="check">
+                <li>Diploma or degree in computer engineering, electronics or equivalent hands-on experience.</li>
+                <li>Confident with Windows desktop and basic Windows Server; comfortable in a Linux terminal.</li>
+                <li>Working knowledge of TCP/IP, DHCP, DNS, VLANs and Wi-Fi troubleshooting.</li>
+                <li>Willing to travel across sites; a two-wheeler licence and your own transport.</li>
+                <li>Writes clearly in English and Malayalam &mdash; documentation is part of the job, not an afterthought.</li>
+                <li>Calm with non-technical users under pressure. Most of our clients are not IT people.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4 class="vac-sub">Useful, not required</h4>
+          <p style="color:var(--ink-2); font-size:.93rem">CCNA, MCSA or CompTIA A+/Network+; experience with Hyper-V or VMware; CCTV and NVR commissioning; gate automation or access control wiring; solar installation exposure.</p>
+
+          <div class="vac-apply">
+            <div>
+              <h4 class="vac-sub" style="margin-bottom:6px">How to apply</h4>
+              <p style="color:var(--ink-2); font-size:.93rem; max-width:52ch">Send your CV with the subject line <strong>IT Technician &mdash; application</strong>. Tell us in a couple of lines about a fault you diagnosed that took more than one attempt. We reply to every application.</p>
+            </div>
+            <div class="hero-actions" style="padding-top:0">
+              <a class="btn btn-primary" href="mailto:sales@devalokamsystems.in?subject=IT%20Technician%20%E2%80%94%20application&amp;body=Please%20attach%20your%20CV%20to%20this%20email.%0A%0AName%3A%0APhone%3A%0AYears%20of%20experience%3A%0AA%20fault%20you%20diagnosed%20that%20took%20more%20than%20one%20attempt%3A%0A">Apply by email</a>
+              <a class="btn btn-wa" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20apply%20for%20the%20IT%20Technician%20role." target="_blank" rel="noopener">
+                <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Apply on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band band-tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Working here</p>
+        <h2>What the job is actually like</h2>
+      </div>
+      <div class="grid-3">
+        <article class="svc"><h3>You own the ticket</h3><p>Whoever picks it up sees it through to closure, including the write-up. No throwing it back into a queue at 5pm.</p></article>
+        <article class="svc"><h3>You learn the whole stack</h3><p>Cabling one week, a Hyper-V host the next, a gate controller after that. Narrow specialists are not what a small field team needs.</p></article>
+        <article class="svc"><h3>Documentation counts</h3><p>We are judged on being able to hand a client a folder they could give to anyone. Your notes are part of the deliverable.</p></article>
+        <article class="svc"><h3>Planned, not chaotic</h3><p>Preventive visits sit on a calendar. Emergencies happen, but the week is not built out of them.</p></article>
+        <article class="svc"><h3>Certifications supported</h3><p>We will back exam costs for certifications relevant to the work you are doing, once you are past probation.</p></article>
+        <article class="svc"><h3>No cold calling</h3><p>Engineers engineer. Sales is not quietly added to your role after month three.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Not the right role, but interested?</h2>
+          <p>Send your CV anyway. We keep applications on file and this is a team that grows by one or two people at a time.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-white" href="mailto:sales@devalokamsystems.in?subject=Speculative%20application">Send your CV</a>
+          <a class="btn btn-outline" href="#/contact" data-link>Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- ================= CONTACT ================= -->
 <div class="page" id="page-contact" hidden>
   <section class="phead">
@@ -1174,6 +1438,23 @@ img{max-width:100%}
 
 </main>
 
+
+<button class="bot-fab" id="botFab" type="button" aria-label="Open the Devalokam assistant" aria-expanded="false" aria-controls="bot">
+  <svg width="25" height="25" aria-hidden="true"><use href="#i-chat"/></svg><span class="dot"></span>
+</button>
+
+<div class="bot" id="bot" role="dialog" aria-label="Devalokam Systems assistant" hidden>
+  <div class="bot-head">
+    <span class="brand-disc" style="width:34px;height:34px" role="img" aria-label="Devalokam Systems logo"></span>
+    <span><b>Devalokam Assistant</b><span class="sub">Answers in a few taps</span></span>
+    <button class="bot-x" id="botClose" type="button" aria-label="Close the assistant">
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </div>
+  <div class="bot-log" id="botLog" role="log" aria-live="polite"></div>
+  <div class="bot-foot" id="botFoot"></div>
+</div>
+
 <a class="wa-fab" id="waFab"
    href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services."
    target="_blank" rel="noopener" aria-label="Chat with Devalokam Systems on WhatsApp">
@@ -1207,6 +1488,7 @@ img{max-width:100%}
           <li><a href="#/" data-link>Home</a></li>
           <li><a href="#/about" data-link>About us</a></li>
           <li><a href="#/about" data-link>Industries</a></li>
+          <li><a href="#/careers" data-link>Careers</a></li>
           <li><a href="#/contact" data-link>Contact</a></li>
         </ul>
       </div>
@@ -1238,6 +1520,7 @@ img{max-width:100%}
     '/':         { el: 'page-home',     title: 'Devalokam Systems' },
     '/services': { el: 'page-services', title: 'Services — Devalokam Systems' },
     '/about':    { el: 'page-about',    title: 'About — Devalokam Systems' },
+    '/careers':  { el: 'page-careers',  title: 'Careers — Devalokam Systems' },
     '/contact':  { el: 'page-contact',  title: 'Contact — Devalokam Systems' }
   };
   var nav = document.getElementById('primaryNav');
@@ -1367,6 +1650,224 @@ img{max-width:100%}
       sent.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     });
   }
+
+
+  /* ---- Devalokam assistant ---------------------------------------- */
+  (function () {
+    var SALES = 'sales@devalokamsystems.in';
+    var WA_NUM = '918089282351';
+
+    var fab = document.getElementById('botFab');
+    var panel = document.getElementById('bot');
+    var log = document.getElementById('botLog');
+    var foot = document.getElementById('botFoot');
+    var closeBtn = document.getElementById('botClose');
+    if (!fab || !panel) return;
+
+    var STEPS = [
+      { id: 'need', label: 'Requirement', q: 'What can we help you with?', opts: [
+        'IT support / helpdesk', 'Annual Maintenance Contract', 'Networking & cabling',
+        'Server or cloud', 'Cyber security', 'CCTV & surveillance',
+        'Automation gates', 'Solar panels', 'Something else' ] },
+      { id: 'scale', label: 'Scale', q: 'Roughly how many users or devices?', opts: [
+        '1–10', '11–50', '51–200', 'More than 200', 'Not sure yet' ] },
+      { id: 'sites', label: 'Sites', q: 'How many sites or locations?', opts: [
+        'One site', '2–5 sites', '6 or more' ] },
+      { id: 'urgency', label: 'Timing', q: 'How soon do you need this?', opts: [
+        'Something is down now', 'Within a week', 'This month', 'Just exploring' ] },
+      { id: 'current', label: 'Current cover', q: 'Do you have an IT provider or AMC right now?', opts: [
+        'Yes, in contract', 'Contract ending soon', 'No provider', 'In-house team' ] }
+    ];
+
+    var answers = {}, contact = {}, step = 0, ref = '';
+
+    function say(text, who) {
+      var d = document.createElement('div');
+      d.className = 'msg ' + (who === 'me' ? 'msg-me' : 'msg-bot');
+      d.textContent = text;
+      log.appendChild(d);
+      log.scrollTop = log.scrollHeight;
+      return d;
+    }
+    function clearFoot() { foot.textContent = ''; }
+
+    function askStep() {
+      if (step >= STEPS.length) { askContact(); return; }
+      var st = STEPS[step];
+      say(st.q, 'bot');
+      clearFoot();
+      var wrap = document.createElement('div');
+      wrap.className = 'chips';
+      st.opts.forEach(function (o) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'chip'; b.textContent = o;
+        b.addEventListener('click', function () {
+          answers[st.id] = o;
+          say(o, 'me');
+          step++;
+          askStep();
+        });
+        wrap.appendChild(b);
+      });
+      foot.appendChild(wrap);
+      var first = wrap.querySelector('.chip');
+      if (first) first.focus();
+    }
+
+    function askContact() {
+      say('Thanks. Last bit — who should we come back to, and how?', 'bot');
+      clearFoot();
+      var f = document.createElement('form');
+      f.className = 'bot-form'; f.noValidate = true;
+      f.innerHTML =
+        '<input id="bot-name" type="text" autocomplete="name" placeholder="Your name *">' +
+        '<input id="bot-company" type="text" autocomplete="organization" placeholder="Company (optional)">' +
+        '<input id="bot-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone *">' +
+        '<input id="bot-email" type="email" autocomplete="email" placeholder="Email *">' +
+        '<textarea id="bot-note" placeholder="Anything else we should know (optional)"></textarea>' +
+        '<span class="bot-err" id="bot-err" aria-live="polite"></span>';
+      var submit = document.createElement('button');
+      submit.type = 'submit'; submit.className = 'btn btn-primary';
+      submit.style.width = '100%'; submit.style.fontSize = '.88rem'; submit.style.padding = '11px 16px';
+      submit.textContent = 'Prepare my enquiry';
+      f.appendChild(submit);
+
+      f.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var err = document.getElementById('bot-err');
+        var name = document.getElementById('bot-name').value.trim();
+        var company = document.getElementById('bot-company').value.trim();
+        var phone = document.getElementById('bot-phone').value.trim();
+        var email = document.getElementById('bot-email').value.trim();
+        var note = document.getElementById('bot-note').value.trim();
+
+        if (name.length < 2) { err.textContent = 'Please tell us your name.'; document.getElementById('bot-name').focus(); return; }
+        if (phone.replace(/\D/g, '').length < 10) { err.textContent = 'A phone number with at least 10 digits, please.'; document.getElementById('bot-phone').focus(); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = 'That email does not look right.'; document.getElementById('bot-email').focus(); return; }
+
+        contact = { name: name, company: company, phone: phone, email: email, note: note };
+        say(name + ' · ' + phone, 'me');
+        showReport();
+      });
+      foot.appendChild(f);
+      document.getElementById('bot-name').focus();
+    }
+
+    function buildReport() {
+      var now = new Date();
+      ref = 'DS-' + now.getTime().toString(36).toUpperCase().slice(-6);
+      var lines = [
+        'DEVALOKAM SYSTEMS — WEBSITE ENQUIRY',
+        'Reference: ' + ref,
+        'Received: ' + now.toLocaleString(),
+        '',
+        'REQUIREMENT'
+      ];
+      STEPS.forEach(function (st) { lines.push(st.label + ': ' + (answers[st.id] || '—')); });
+      lines.push('', 'CONTACT');
+      lines.push('Name: ' + contact.name);
+      lines.push('Company: ' + (contact.company || 'Not given'));
+      lines.push('Phone: ' + contact.phone);
+      lines.push('Email: ' + contact.email);
+      if (contact.note) lines.push('Notes: ' + contact.note);
+      lines.push('', 'Submitted via the Devalokam Systems website assistant.');
+      return lines.join('\n');
+    }
+
+    function showReport() {
+      var report = buildReport();
+      say('Your enquiry is ready. Reference ' + ref + '.', 'bot');
+
+      var card = document.createElement('div');
+      card.className = 'bot-report';
+      var h = document.createElement('h5'); h.textContent = 'Enquiry summary · ' + ref;
+      card.appendChild(h);
+      var dl = document.createElement('dl');
+      var rows = STEPS.map(function (st) { return [st.label, answers[st.id] || '—']; })
+        .concat([['Name', contact.name], ['Company', contact.company || 'Not given'],
+                 ['Phone', contact.phone], ['Email', contact.email]]);
+      if (contact.note) rows.push(['Notes', contact.note]);
+      rows.forEach(function (r) {
+        var dt = document.createElement('dt'); dt.textContent = r[0];
+        var dd = document.createElement('dd'); dd.textContent = r[1];
+        dl.appendChild(dt); dl.appendChild(dd);
+      });
+      card.appendChild(dl);
+      log.appendChild(card);
+      log.scrollTop = log.scrollHeight;
+
+      clearFoot();
+      var subject = 'Website enquiry ' + ref + ' — ' + (answers.need || 'General') +
+                    ' — ' + (contact.company || contact.name);
+
+      var acts = document.createElement('div');
+      acts.className = 'bot-actions';
+
+      var mail = document.createElement('a');
+      mail.className = 'btn btn-primary';
+      mail.href = 'mailto:' + SALES + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(report);
+      mail.textContent = 'Email to Devalokam';
+
+      var wa = document.createElement('a');
+      wa.className = 'btn btn-wa';
+      wa.target = '_blank'; wa.rel = 'noopener';
+      wa.href = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(report);
+      wa.textContent = 'Send on WhatsApp';
+
+      acts.appendChild(mail); acts.appendChild(wa);
+      foot.appendChild(acts);
+
+      var acts2 = document.createElement('div');
+      acts2.className = 'bot-actions';
+      var call = document.createElement('a');
+      call.className = 'btn btn-ghost'; call.href = 'tel:+91' + WA_NUM.slice(2);
+      call.textContent = 'Call 8089282351';
+      var again = document.createElement('button');
+      again.type = 'button'; again.className = 'btn btn-ghost';
+      again.textContent = 'Start again';
+      again.addEventListener('click', reset);
+      acts2.appendChild(call); acts2.appendChild(again);
+      foot.appendChild(acts2);
+
+      var note = document.createElement('p');
+      note.className = 'bot-note';
+      note.textContent = 'Nothing is sent until you tap one of the buttons above — it opens your own mail app or WhatsApp with the summary already written.';
+      foot.appendChild(note);
+
+      mail.focus();
+      requestAnimationFrame(function () { log.scrollTop = log.scrollHeight; });
+    }
+
+    function reset() {
+      answers = {}; contact = {}; step = 0;
+      log.textContent = ''; clearFoot();
+      say('Hello — I am the Devalokam Systems assistant. Five quick questions and I will put together an enquiry our team can act on.', 'bot');
+      askStep();
+    }
+
+    function openBot() {
+      panel.hidden = false;
+      fab.setAttribute('aria-expanded', 'true');
+      fab.hidden = true;
+      var waf = document.getElementById('waFab');
+      if (waf) waf.hidden = true;
+      if (!log.childElementCount) reset();
+    }
+    function closeBot() {
+      panel.hidden = true;
+      fab.hidden = false;
+      fab.setAttribute('aria-expanded', 'false');
+      var waf = document.getElementById('waFab');
+      if (waf) waf.hidden = false;
+      fab.focus();
+    }
+
+    fab.addEventListener('click', openBot);
+    closeBtn.addEventListener('click', closeBot);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) closeBot();
+    });
+  })();
 
   if (editBtn) {
     editBtn.addEventListener('click', function () {
