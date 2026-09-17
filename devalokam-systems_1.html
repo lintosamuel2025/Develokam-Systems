@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Devalokam Systems — IT consulting, hardware and networking, server management, technical support and annual maintenance contracts. Call 8089282351.">
+<meta name="description" content="Devalokam Systems — IT consulting, hardware and networking, server management, technical support and annual maintenance contracts. Call or WhatsApp 8089282351.">
 <meta name="theme-color" content="#3F3DD6">
 <title>Devalokam Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,7 +88,7 @@ img,svg{max-width:100%}
 .brand-name{display:block; font-family:var(--display); font-weight:700; font-size:1.02rem; letter-spacing:-.02em; line-height:1.1; white-space:nowrap}
 .brand-sub{display:block; white-space:nowrap; font-family:var(--mono); font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); line-height:1}
 .nav{display:flex; align-items:center; gap:4px; margin-left:auto}
-.nav .phone-link{display:none}
+.nav .phone-link,.nav .wa-link{display:none}
 .nav a{
   font-size:.9rem; font-weight:500; color:var(--ink-2); padding:8px 13px; border-radius:7px;
   transition:color .16s ease, background .16s ease;
@@ -267,6 +267,7 @@ td.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:n
 .ccard p{font-size:.85rem; color:var(--ink-2); margin-top:3px}
 .stack{display:flex; flex-direction:column; gap:14px}
 
+form.enq[hidden],.sent[hidden]{display:none!important}
 form.enq{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 24px; box-shadow:var(--shadow-md); display:flex; flex-direction:column; gap:16px}
 .field{display:flex; flex-direction:column; gap:6px}
 .field label{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2)}
@@ -316,6 +317,55 @@ details .ans{padding:0 20px 18px; font-size:.92rem; color:var(--ink-2); max-widt
 .foot-bar{display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:space-between; align-items:center; margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink-3)}
 .foot-bar .mono{font-family:var(--mono); font-size:.74rem; letter-spacing:.05em}
 
+/* ---------- whatsapp ---------- */
+:root{--wa:#1EA855; --wa-strong:#17853F; --wa-soft:#E4F7EC}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--wa:#35D07F; --wa-strong:#25D366; --wa-soft:#13301F}}
+:root[data-theme="dark"]{--wa:#35D07F; --wa-strong:#25D366; --wa-soft:#13301F}
+
+.btn-wa{background:var(--wa); color:#fff; box-shadow:var(--shadow-md)}
+.btn-wa:hover{background:var(--wa-strong); transform:translateY(-2px); box-shadow:var(--shadow-lg)}
+:root[data-theme="dark"] .btn-wa{color:#08130C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-wa{color:#08130C}}
+
+.wa-link{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:.86rem; font-weight:500;
+  color:var(--ink); padding:9px 14px; border:1px solid var(--line-strong); border-radius:8px;
+  transition:border-color .16s ease, background .16s ease, color .16s ease;
+}
+.wa-link svg{color:var(--wa); flex:none}
+.wa-link:hover{border-color:var(--wa); background:var(--wa-soft); text-decoration:none}
+
+.ccard.ccard-wa .ico{background:var(--wa-soft); color:var(--wa)}
+.ccard.ccard-wa:hover{border-color:var(--wa)}
+
+/* floating action button */
+.wa-fab{
+  position:fixed; z-index:70; right:18px;
+  bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  display:inline-flex; align-items:center; gap:0; overflow:hidden;
+  height:56px; padding:0 15px; border-radius:28px;
+  background:var(--wa-strong); color:#fff; box-shadow:0 6px 22px -6px rgba(23,133,63,.55), 0 2px 6px rgba(0,0,0,.18);
+  transition:gap .22s ease, padding .22s ease, transform .18s ease, box-shadow .2s ease;
+}
+.wa-fab:hover{text-decoration:none; transform:translateY(-3px); box-shadow:0 12px 30px -8px rgba(23,133,63,.6), 0 3px 8px rgba(0,0,0,.2)}
+.wa-fab svg{flex:none; width:26px; height:26px}
+.wa-fab .wa-fab-text{
+  max-width:0; opacity:0; white-space:nowrap; font-family:var(--display); font-weight:600;
+  font-size:.92rem; letter-spacing:-.01em; transition:max-width .26s ease, opacity .2s ease;
+}
+.wa-fab:hover .wa-fab-text,.wa-fab:focus-visible .wa-fab-text{max-width:190px; opacity:1}
+.wa-fab:hover,.wa-fab:focus-visible{gap:10px; padding:0 21px 0 17px}
+@media (max-width:760px){
+  .wa-fab{height:52px; padding:0 13px; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+  .wa-fab svg{width:24px; height:24px}
+  .wa-fab .wa-fab-text{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .wa-fab .wa-fab-text{max-width:190px; opacity:1}
+  .wa-fab{gap:10px; padding:0 21px 0 17px}
+  @media (max-width:760px){.wa-fab .wa-fab-text{display:none}}
+}
+
 /* ---------- responsive ---------- */
 @media (max-width:920px){
   .hero-in,.detail,.contact-grid{grid-template-columns:1fr; gap:34px}
@@ -331,7 +381,7 @@ details .ans{padding:0 20px 18px; font-size:.92rem; color:var(--ink-2); max-widt
     background:var(--surface); border-bottom:1px solid var(--line); padding:10px 16px 16px; box-shadow:var(--shadow-md);
   }
   .nav a{padding:12px 14px; font-size:.97rem}
-  .nav .phone-link{display:inline-flex; margin-top:8px; justify-content:center}
+  .nav .phone-link,.nav .wa-link{display:inline-flex; margin-top:8px; justify-content:center}
   .head-in{position:relative}
 }
 @media (max-width:520px){
@@ -400,6 +450,9 @@ img{max-width:100%}
     <symbol id="i-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/>
     </symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
+    </symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m4.5 12.5 4.6 4.6L19.5 6.8"/>
     </symbol>
@@ -432,8 +485,14 @@ img{max-width:100%}
       <a class="phone-link" href="tel:+918089282351">
         <svg width="15" height="15" aria-hidden="true"><use href="#i-phone"/></svg>8089282351
       </a>
+      <a class="wa-link" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services." target="_blank" rel="noopener" style="margin-top:6px; justify-content:center">
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp us
+      </a>
     </nav>
     <div class="head-cta">
+      <a class="wa-link" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp
+      </a>
       <a class="phone-link" href="tel:+918089282351">
         <svg width="15" height="15" aria-hidden="true"><use href="#i-phone"/></svg>8089282351
       </a>
@@ -455,11 +514,15 @@ img{max-width:100%}
         <div class="hero-actions">
           <a class="btn btn-primary" href="#/contact" data-link>Book an infrastructure audit <svg width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn-ghost" href="#/services" data-link>Explore services</a>
+          <a class="btn btn-wa" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services." target="_blank" rel="noopener">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat on WhatsApp
+          </a>
         </div>
         <ul class="trust-row">
           <li><span class="dot-up"></span> 4-hour onsite response target</li>
           <li><span class="dot-up"></span> 24&times;7 monitoring on AMC plans</li>
           <li><span class="dot-up"></span> Vendor-neutral procurement</li>
+          <li><span class="dot-up"></span> WhatsApp support line</li>
         </ul>
       </div>
 
@@ -805,6 +868,9 @@ img{max-width:100%}
         <div class="hero-actions">
           <a class="btn btn-white" href="#/contact" data-link>Send an enquiry</a>
           <a class="btn btn-outline" href="tel:+918089282351">Call 8089282351</a>
+          <a class="btn btn-wa" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20a%20quote%20for%20IT%20services." target="_blank" rel="noopener">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp
+          </a>
         </div>
       </div>
     </div>
@@ -930,7 +996,7 @@ img{max-width:100%}
       <div class="phead-in">
         <p class="eyebrow">Contact</p>
         <h1>Talk to an engineer, not a form queue</h1>
-        <p class="lede">Call if something is down right now — that is always faster. For everything else, send the details and we will come back with next steps and a rough scope.</p>
+        <p class="lede">Call or WhatsApp if something is down right now — that is always faster. For everything else, send the details and we will come back with next steps and a rough scope.</p>
       </div>
     </div>
   </section>
@@ -942,6 +1008,10 @@ img{max-width:100%}
           <a class="ccard" href="tel:+918089282351">
             <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-phone"/></svg></span>
             <span><b>Phone</b><span class="big">8089282351</span><p>Fastest route for an outage. Business hours for new enquiries; 24&times;7 for Enterprise AMC clients.</p></span>
+          </a>
+          <a class="ccard ccard-wa" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services." target="_blank" rel="noopener">
+            <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+            <span><b>WhatsApp</b><span class="big">Chat with us</span><p>Send a photo of the error, the switch or the rack and we can often diagnose before anyone travels.</p></span>
           </a>
           <a class="ccard" href="mailto:sales@devalokamsystems.com">
             <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-mail"/></svg></span>
@@ -1006,17 +1076,20 @@ img{max-width:100%}
               <span class="err" id="e-msg" aria-live="polite"></span>
             </div>
             <button class="btn btn-primary" type="submit" style="align-self:flex-start">Send enquiry <svg width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-            <p class="formnote">Urgent outage? Calling <a href="tel:+918089282351">8089282351</a> gets an engineer faster than this form.</p>
+            <p class="formnote">Urgent outage? Call <a href="tel:+918089282351">8089282351</a> or <a href="https://wa.me/918089282351?text=Urgent%3A%20we%20have%20an%20outage." target="_blank" rel="noopener">message us on WhatsApp</a> — both reach an engineer faster than this form.</p>
           </form>
 
           <div class="sent" id="enqSent" hidden role="status">
             <span class="ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg></span>
             <div>
               <h2 style="font-size:1.28rem">Enquiry ready to send</h2>
-              <p class="formnote" style="margin-top:7px">Here is what you entered. Use the button below to send it from your own mail app, or call us directly — either way an engineer will pick it up.</p>
+              <p class="formnote" style="margin-top:7px">Here is what you entered. Send it straight to us on WhatsApp, open it in your own mail app, or call — whichever suits you. All three reach the same team.</p>
             </div>
             <dl id="enqSummary"></dl>
             <div class="hero-actions" style="padding-top:0">
+              <a class="btn btn-wa" id="enqWa" href="https://wa.me/918089282351" target="_blank" rel="noopener">
+                <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Send on WhatsApp
+              </a>
               <a class="btn btn-primary" id="enqMailto" href="mailto:sales@devalokamsystems.com">Send by email</a>
               <a class="btn btn-ghost" href="tel:+918089282351">Call 8089282351</a>
               <button class="btn btn-ghost" type="button" id="enqEdit">Edit enquiry</button>
@@ -1065,6 +1138,13 @@ img{max-width:100%}
 
 </main>
 
+<a class="wa-fab" id="waFab"
+   href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services."
+   target="_blank" rel="noopener" aria-label="Chat with Devalokam Systems on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+  <span class="wa-fab-text">Chat on WhatsApp</span>
+</a>
+
 <footer class="site-foot">
   <div class="wrap">
     <div class="foot-grid">
@@ -1104,6 +1184,7 @@ img{max-width:100%}
         <h4>Get in touch</h4>
         <ul>
           <li><a href="tel:+918089282351">8089282351</a></li>
+          <li><a href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services." target="_blank" rel="noopener">WhatsApp: 8089282351</a></li>
           <li><a href="mailto:sales@devalokamsystems.com">sales@devalokamsystems.com</a></li>
           <li class="muted">Kerala, India</li>
           <li class="muted">Mon&ndash;Sat, 9:00&ndash;18:30 IST</li>
@@ -1243,6 +1324,13 @@ img{max-width:100%}
       mailto.href = 'mailto:sales@devalokamsystems.com'
         + '?subject=' + encodeURIComponent('Enquiry — ' + service + ' — ' + (company || name))
         + '&body=' + encodeURIComponent(body);
+
+      var waBtn = document.getElementById('enqWa');
+      if (waBtn) {
+        waBtn.href = 'https://wa.me/918089282351?text=' + encodeURIComponent(
+          'Enquiry for Devalokam Systems\n\n' + body
+        );
+      }
 
       form.hidden = true;
       sent.hidden = false;
