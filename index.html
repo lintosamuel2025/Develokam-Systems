@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Devalokam Systems — your security is our priority. IT consulting, networking, server management, support, AMC, cyber security, CCTV, automation gates and solar. Call or WhatsApp 8089282351.">
+<meta name="description" content="Devalokam Systems, Nooranad, Kerala — your security is our priority. IT consulting, hardware and networking, server management, technical support, AMC, cyber security, CCTV, automation gates and solar. Call or WhatsApp 8089282351.">
 <meta name="theme-color" content="#14110A">
 <title>Devalokam Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -293,6 +293,22 @@ td.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:n
 .phead::before{content:""; position:absolute; inset:0; background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 88px); opacity:.35; mask-image:linear-gradient(180deg,transparent,#000)}
 .phead .wrap{position:relative}
 .phead-in{display:flex; flex-direction:column; gap:14px; max-width:66ch}
+
+/* ---------- testimonials ---------- */
+.review{
+  display:flex; flex-direction:column; gap:14px; padding:24px;
+  background:var(--surface); border:1px solid var(--line); border-radius:13px;
+  transition:transform .2s ease, box-shadow .22s ease, border-color .2s ease;
+}
+.review:hover{transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:var(--line-strong)}
+.stars{display:flex; gap:2px; color:var(--accent); line-height:1}
+.stars svg{width:15px; height:15px}
+.review blockquote{margin:0; font-size:.94rem; color:var(--ink-2); line-height:1.6}
+.review blockquote::before{content:"\201C"; font-family:var(--serif); font-size:1.6rem; color:var(--accent); line-height:0; vertical-align:-.28em; margin-right:.12em}
+.review footer{margin-top:auto; padding-top:14px; border-top:1px solid var(--line); display:flex; align-items:center; gap:10px}
+.rev-who b{display:block; font-family:var(--display); font-size:.9rem; font-weight:600; color:var(--ink)}
+.rev-who span{display:block; font-size:.79rem; color:var(--ink-3)}
+.rev-src{margin-left:auto; font-family:var(--mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); border:1px solid var(--line); border-radius:5px; padding:3px 7px; white-space:nowrap}
 
 /* ---------- careers ---------- */
 .vacancy{background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow-md); overflow:hidden}
@@ -853,6 +869,18 @@ img{max-width:100%}
     </div>
   </section>
 
+  <section class="band" id="testimonials" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Client feedback</p>
+        <h2>What our customers say</h2>
+        <p class="lede" id="revLede"></p>
+      </div>
+      <div class="grid-3" id="revGrid"></div>
+      <p class="formnote" id="revNote" style="margin-top:16px"></p>
+    </div>
+  </section>
+
   <section class="band band-tint">
     <div class="wrap">
       <div class="cta-band">
@@ -888,14 +916,18 @@ img{max-width:100%}
         <div class="detail-copy">
           <p class="eyebrow">Service 01</p>
           <h2>IT Consulting</h2>
-          <p class="lede">An outside read on what you are running, what it costs you, and what it will cost you to leave it alone. We start with evidence rather than a product recommendation.</p>
+          <p class="lede">Most IT problems are budget problems nobody has written down yet. We start by producing the document that makes the decision arguable: what you own, what it costs to keep running, what fails next, and what each option actually buys you.</p>
           <ul class="check">
-            <li><strong>Infrastructure audit</strong> — full inventory of servers, network, endpoints, licences and support contracts, with end-of-life and end-of-support dates flagged.</li>
-            <li><strong>Capacity and refresh planning</strong> — storage growth, compute headroom and a three-year replacement schedule you can budget against.</li>
-            <li><strong>Cloud versus on-premise</strong> — a workload-by-workload comparison with real running costs, not a slide that says "cloud first".</li>
-            <li><strong>Migration roadmaps</strong> — sequencing, dependencies, downtime windows and rollback for every move.</li>
-            <li><strong>IT budgeting and vendor review</strong> — what you are paying, what you are getting, and where the overlap is.</li>
+            <li><strong>Infrastructure audit</strong> — a full inventory of servers, network equipment, endpoints, licences and support contracts, with end-of-life and end-of-support dates flagged against each item.</li>
+            <li><strong>Asset and licence register</strong> — serial numbers, purchase and warranty dates, assigned users and renewal calendar, handed over in a format you can maintain yourself.</li>
+            <li><strong>Resilience review</strong> — where the single points of failure are, what happens when each one fails, and what it would cost to remove them.</li>
+            <li><strong>Capacity and refresh planning</strong> — storage growth curves, compute headroom and a three-year replacement schedule phased so the spend is predictable rather than lumpy.</li>
+            <li><strong>Cloud versus on-premise modelling</strong> — a workload-by-workload comparison with real running costs including egress, licensing and connectivity, not a slide that says "cloud first".</li>
+            <li><strong>Migration roadmaps</strong> — sequencing, dependencies, change windows, acceptance criteria and a rollback position for every move.</li>
+            <li><strong>Vendor and contract review</strong> — what you pay, what you actually receive, where two suppliers are billing for the same thing, and which renewals to renegotiate.</li>
+            <li><strong>Budget paper</strong> — a prioritised remediation list with indicative costs, separated into must-do, should-do and can-wait, written to be read by a finance director.</li>
           </ul>
+          <p style="color:var(--ink-2); font-size:.93rem">The deliverable is a written report, not a conversation. It is yours to keep and act on whether or not you engage us for the work it recommends.</p>
         </div>
         <aside class="spec">
           <h4>Typical engagement</h4>
@@ -913,14 +945,18 @@ img{max-width:100%}
         <div class="detail-copy">
           <p class="eyebrow">Service 02</p>
           <h2>IT Hardware &amp; Networking</h2>
-          <p class="lede">Procurement and physical build. Specified against the workload, installed to a standard, and handed over with documentation that somebody else could work from.</p>
+          <p class="lede">Procurement and physical build, specified against measured load rather than a price list. Installed to a standard, labelled at both ends, and handed over with documentation another engineer could work from on their first day.</p>
           <ul class="check">
-            <li><strong>Vendor-neutral procurement</strong> — workstations, servers, switches, UPS and peripherals quoted from multiple suppliers with warranty terms compared.</li>
-            <li><strong>Structured cabling</strong> — Cat6 / Cat6A and fibre backbone, labelled patch panels, tested and certified drops, tidy racks.</li>
-            <li><strong>Managed switching and PoE</strong> — VLAN design, link aggregation, PoE budgeting for cameras, access points and IP phones.</li>
-            <li><strong>Wi-Fi design</strong> — predictive and onsite surveys, access point placement, roaming and guest network separation.</li>
-            <li><strong>Firewalls and edge</strong> — perimeter policy, site-to-site and remote-access VPN, dual-WAN failover.</li>
+            <li><strong>Vendor-neutral procurement</strong> — workstations, servers, switches, UPS and peripherals quoted from multiple suppliers, with warranty terms, response times and total cost of ownership compared side by side.</li>
+            <li><strong>Structured cabling</strong> — Cat6 and Cat6A copper with fibre backbone between floors or buildings, run to containment, terminated on labelled patch panels, and certified drop by drop with results supplied.</li>
+            <li><strong>Rack build and power</strong> — cabinet layout planned per rack unit, cable management that survives the next change, UPS sizing against real load, and a runtime figure you can plan a shutdown around.</li>
+            <li><strong>Managed switching</strong> — VLAN segmentation, inter-VLAN routing, link aggregation and spanning-tree configuration, with PoE budgeted properly for cameras, access points and IP phones.</li>
+            <li><strong>Wi-Fi design</strong> — predictive modelling followed by an onsite survey, access point placement and channel plan, seamless roaming, and guest traffic kept off the corporate network.</li>
+            <li><strong>Firewalls and edge</strong> — perimeter policy written to least privilege, site-to-site and remote-access VPN, content and application control, and dual-WAN failover tested before sign-off.</li>
+            <li><strong>Server room environment</strong> — cooling and airflow review, power distribution, earthing and physical access, because hardware failures are often building failures.</li>
+            <li><strong>Lifecycle and warranty</strong> — registration, warranty tracking and claim handling for everything we supply, so a failed part is our phone call rather than yours.</li>
           </ul>
+          <p style="color:var(--ink-2); font-size:.93rem">Every build closes with an as-built pack: rack elevations, port and patch schedules, IP addressing, VLAN map, device credentials into a vault you control, and the cabling test results.</p>
         </div>
         <aside class="spec">
           <h4>Build standards</h4>
@@ -938,15 +974,18 @@ img{max-width:100%}
         <div class="detail-copy">
           <p class="eyebrow">Service 03</p>
           <h2>Server Management</h2>
-          <p class="lede">The part of the estate where an unnoticed problem becomes an expensive one. Built properly, patched on a schedule, monitored continuously, and backed up in a way that has actually been restored.</p>
+          <p class="lede">This is the part of the estate where a problem nobody noticed becomes an expensive one. Built to a baseline, patched on a schedule, watched continuously, and backed up in a way somebody has actually restored from.</p>
           <ul class="check">
-            <li><strong>Build and hardening</strong> — Windows Server and Linux, baseline configuration, least-privilege accounts, unused services closed.</li>
-            <li><strong>Virtualisation</strong> — Hyper-V and VMware host sizing, consolidation, resource allocation and snapshot policy.</li>
-            <li><strong>Patch management</strong> — tested patch rings and scheduled maintenance windows, with a rollback position before anything is applied.</li>
-            <li><strong>Backup and disaster recovery</strong> — 3-2-1 backup design, defined RPO and RTO, and restore tests on a calendar with documented results.</li>
-            <li><strong>Monitoring and alerting</strong> — CPU, memory, disk, RAID health, service state and backup job status, with alerts routed to an engineer.</li>
-            <li><strong>Directory and mail</strong> — Active Directory, group policy, Microsoft 365 tenant and mailbox administration.</li>
+            <li><strong>Build and hardening</strong> — Windows Server and Linux deployed to a documented baseline: least-privilege service accounts, unused roles and services removed, local administrator control, secure remote access and time synchronisation.</li>
+            <li><strong>Virtualisation</strong> — Hyper-V and VMware host sizing, consolidation of ageing physical servers, resource allocation reviewed against real utilisation, and a snapshot policy that does not quietly fill the datastore.</li>
+            <li><strong>Storage and RAID</strong> — array design matched to the workload, hot-spare policy, controller firmware currency, and disk health monitored so a degraded array is a scheduled job rather than an outage.</li>
+            <li><strong>Patch management</strong> — patches tested on a pilot ring, applied inside agreed maintenance windows, with a checkpoint taken and a rollback position established before anything is touched.</li>
+            <li><strong>Backup and disaster recovery</strong> — 3-2-1 design with an offsite copy, an RPO and RTO agreed in writing rather than assumed, immutable or air-gapped retention where ransomware is the concern, and restore tests on a calendar with documented evidence.</li>
+            <li><strong>Monitoring and alerting</strong> — CPU, memory, disk, RAID health, service state, certificate expiry and backup job status polled continuously, with alerts routed to an engineer instead of an unread mailbox.</li>
+            <li><strong>Directory and identity</strong> — Active Directory design and clean-up, group policy, privileged access review, and multi-factor authentication on anything reachable from outside.</li>
+            <li><strong>Microsoft 365 and mail</strong> — tenant configuration, mailbox and licence administration, mail flow and anti-spoofing records (SPF, DKIM, DMARC), and retention that matches how long you actually need to keep things.</li>
           </ul>
+          <p style="color:var(--ink-2); font-size:.93rem">You receive a monthly patch compliance summary and quarterly restore evidence — the two documents most estates cannot produce when someone finally asks for them.</p>
         </div>
         <aside class="spec">
           <h4>Managed server defaults</h4>
@@ -964,13 +1003,16 @@ img{max-width:100%}
         <div class="detail-copy">
           <p class="eyebrow">Service 04</p>
           <h2>Technical Support</h2>
-          <p class="lede">A helpdesk your staff will actually use. Remote-first because it is faster, onsite the moment a problem needs hands on hardware, and every ticket measured against an agreed window.</p>
+          <p class="lede">A helpdesk your staff will actually use. Remote first because it is faster, onsite the moment a problem needs hands on hardware, and every ticket measured against a response window agreed before the contract starts.</p>
           <ul class="check">
-            <li><strong>Remote helpdesk</strong> — phone, email and ticket intake, with secure remote sessions for desktops, laptops and servers.</li>
-            <li><strong>Onsite engineering</strong> — dispatched for hardware faults, cabling, installations and anything remote support cannot close.</li>
-            <li><strong>Endpoint lifecycle</strong> — imaging, joining, software deployment, user onboarding and offboarding, secure device disposal.</li>
-            <li><strong>Printer, peripheral and AV support</strong> — the unglamorous things that stop a floor working.</li>
-            <li><strong>Escalation and root cause</strong> — a named engineer owns the ticket to closure, and repeat incidents get a written cause, not just another fix.</li>
+            <li><strong>Remote helpdesk</strong> — intake by phone, email or WhatsApp into a ticketing system, with secure attended and unattended remote sessions for desktops, laptops and servers.</li>
+            <li><strong>Onsite engineering</strong> — dispatched for hardware faults, cabling, installations, relocations and anything remote support cannot close, with the visit logged against the same ticket.</li>
+            <li><strong>Endpoint lifecycle</strong> — standard build images, domain or tenant enrolment, software deployment, encryption, and secure wipe and disposal at end of life with a certificate where you need one.</li>
+            <li><strong>Joiners, movers and leavers</strong> — accounts, licences, mailboxes, group membership and device handover processed on a checklist, and access revoked the day someone leaves rather than the quarter after.</li>
+            <li><strong>Printers, peripherals and AV</strong> — the unglamorous equipment that stops a floor working: multifunction devices, scanners, label printers, meeting-room displays and conferencing kit.</li>
+            <li><strong>Escalation and root cause</strong> — a named engineer owns the ticket through to closure, and a fault that recurs gets a written cause and a permanent fix, not a third workaround.</li>
+            <li><strong>Asset and knowledge records</strong> — who has what, how each site is configured, and the fixes that worked, kept current so support does not depend on one person remembering.</li>
+            <li><strong>Service reporting</strong> — ticket volumes, response and resolution against target, and the recurring issues worth spending money to eliminate.</li>
           </ul>
         </div>
         <aside class="spec">
@@ -989,13 +1031,17 @@ img{max-width:100%}
         <div class="detail-copy">
           <p class="eyebrow">Service 05</p>
           <h2>AMC &mdash; Annual Maintenance Contracts</h2>
-          <p class="lede">Preventive maintenance on a calendar instead of a crisis, at a fixed annual cost. Three tiers, scoped to the size of the estate and how much downtime you can absorb.</p>
+          <p class="lede">Maintenance on a calendar instead of a crisis, at a cost you can put in a budget twelve months ahead. Three tiers, scoped to the size of the estate and to how long you can afford to be down.</p>
           <ul class="check">
-            <li><strong>Scheduled preventive visits</strong> — physical inspection, cleaning, thermal checks, firmware review, cable and rack tidy.</li>
-            <li><strong>Included remedial labour</strong> — no callout charge for anything inside contracted scope.</li>
-            <li><strong>Spare handling</strong> — warranty claims managed on your behalf; critical spares held for Enterprise tier estates.</li>
-            <li><strong>Quarterly health report</strong> — incidents, patch compliance, backup results, capacity trend and next-quarter recommendations.</li>
+            <li><strong>Scheduled preventive visits</strong> — physical inspection and cleaning, thermal and fan checks, UPS battery health, firmware and driver currency, log review, and a rack and cable tidy before small problems become faults.</li>
+            <li><strong>Included remedial labour</strong> — no callout charge and no hourly billing for anything inside contracted scope, so calling us early is never the expensive choice.</li>
+            <li><strong>Priority routing</strong> — contracted tickets are triaged ahead of ad-hoc work, against the response window written into your tier.</li>
+            <li><strong>Spares and warranty</strong> — warranty registration and claims handled on your behalf, loan equipment where we can, and critical spares held locally for Enterprise estates.</li>
+            <li><strong>Monitoring and patching</strong> — servers, and network equipment on the upper tiers, watched continuously and patched in agreed windows rather than whenever someone remembers.</li>
+            <li><strong>Quarterly health report and review</strong> — incidents and trends, patch compliance, backup and restore results, capacity headroom, and a ranked list of what to address next quarter.</li>
+            <li><strong>Annual roadmap refresh</strong> — the refresh schedule and budget plan updated each year against what actually changed, so the contract keeps pace with the business.</li>
           </ul>
+          <p style="color:var(--ink-2); font-size:.93rem">Scope is itemised in the contract by site, device and service. What is and is not covered is never a conversation you have to have during an outage.</p>
         </div>
         <aside class="spec">
           <h4>Contract shape</h4>
@@ -1088,7 +1134,8 @@ img{max-width:100%}
             <dt>Focus</dt><dd>SMB &amp; mid-market IT</dd>
             <dt>Model</dt><dd>Project + AMC</dd>
             <dt>Procurement</dt><dd>Vendor-neutral</dd>
-            <dt>Coverage</dt><dd>Kerala, India</dd>
+            <dt>Base</dt><dd>Nooranad, Kerala</dd>
+            <dt>Coverage</dt><dd>Kerala + remote</dd>
             <dt>Onsite</dt><dd>Scheduled + emergency</dd>
             <dt>Contact</dt><dd>8089282351</dd>
           </dl>
@@ -1319,11 +1366,11 @@ img{max-width:100%}
           </a>
           <div class="ccard">
             <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span><b>Service area</b><span class="big">Kerala, India</span><p>Onsite engineering across Kerala, with remote support available anywhere in India. Sites outside the standard area are covered by arrangement.</p></span>
+            <span><b>Office</b><span class="big">Nooranad, Kerala</span><p>Building No 179, Near CS Stores, Mattappally, Nooranad, Kerala 690504. Onsite engineering across Kerala, remote support anywhere in India, and sites outside the standard area covered by arrangement.</p></span>
           </div>
           <div class="ccard">
             <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-clock"/></svg></span>
-            <span><b>Hours</b><span class="big">Mon&ndash;Sat, 9:00&ndash;18:30</span><p>Extended and 24&times;7 cover available on Standard and Enterprise maintenance contracts.</p></span>
+            <span><b>Hours</b><span class="big">Mon&ndash;Sat, 9:00&ndash;19:00</span><p>Sunday 11:00&ndash;19:00. Extended and 24&times;7 cover available on Standard and Enterprise maintenance contracts.</p></span>
           </div>
         </div>
 
@@ -1498,8 +1545,8 @@ img{max-width:100%}
           <li><a href="tel:+918089282351">8089282351</a></li>
           <li><a href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20ask%20about%20your%20IT%20services." target="_blank" rel="noopener">WhatsApp: 8089282351</a></li>
           <li><a href="mailto:sales@devalokamsystems.in">sales@devalokamsystems.in</a></li>
-          <li class="muted">Kerala, India</li>
-          <li class="muted">Mon&ndash;Sat, 9:00&ndash;18:30 IST</li>
+          <li class="muted">Building No 179, Near CS Stores,<br>Mattappally, Nooranad, Kerala 690504</li>
+          <li class="muted">Mon&ndash;Sat 9:00&ndash;19:00 &middot; Sun 11:00&ndash;19:00 IST</li>
         </ul>
       </div>
     </div>
@@ -1651,6 +1698,73 @@ img{max-width:100%}
     });
   }
 
+
+  /* ---- client reviews -------------------------------------------------
+     Paste real Google reviews here. The section stays hidden while this
+     array is empty, so nothing unverified is ever shown.
+     { name, role, rating (1-5), text, source, date }                      */
+  var REVIEWS = [];
+  var REVIEWS_SUMMARY = { rating: null, count: null, source: 'Google' };
+
+  (function renderReviews() {
+    var sec = document.getElementById('testimonials');
+    var grid = document.getElementById('revGrid');
+    if (!sec || !grid || !REVIEWS.length) return;
+
+    function stars(nStars) {
+      var wrap = document.createElement('div');
+      wrap.className = 'stars';
+      wrap.setAttribute('role', 'img');
+      wrap.setAttribute('aria-label', nStars + ' out of 5 stars');
+      for (var i = 0; i < 5; i++) {
+        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 20 20');
+        svg.setAttribute('aria-hidden', 'true');
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z');
+        path.setAttribute('fill', i < nStars ? 'currentColor' : 'none');
+        path.setAttribute('stroke', 'currentColor');
+        path.setAttribute('stroke-width', '1.4');
+        path.setAttribute('stroke-linejoin', 'round');
+        svg.appendChild(path);
+        wrap.appendChild(svg);
+      }
+      return wrap;
+    }
+
+    REVIEWS.forEach(function (r) {
+      var art = document.createElement('article');
+      art.className = 'review';
+      art.appendChild(stars(r.rating || 5));
+      var q = document.createElement('blockquote');
+      q.textContent = r.text;
+      art.appendChild(q);
+      var f = document.createElement('footer');
+      var who = document.createElement('div');
+      who.className = 'rev-who';
+      var b = document.createElement('b'); b.textContent = r.name;
+      who.appendChild(b);
+      if (r.role) { var sp = document.createElement('span'); sp.textContent = r.role; who.appendChild(sp); }
+      f.appendChild(who);
+      var src = document.createElement('span');
+      src.className = 'rev-src';
+      src.textContent = (r.source || 'Google') + (r.date ? ' · ' + r.date : '');
+      f.appendChild(src);
+      art.appendChild(f);
+      grid.appendChild(art);
+    });
+
+    var lede = document.getElementById('revLede');
+    if (lede) {
+      lede.textContent = (REVIEWS_SUMMARY.rating && REVIEWS_SUMMARY.count)
+        ? 'Rated ' + REVIEWS_SUMMARY.rating + ' out of 5 across ' + REVIEWS_SUMMARY.count +
+          ' ' + REVIEWS_SUMMARY.source + ' reviews. A few of them, in full.'
+        : 'Feedback left by clients on ' + REVIEWS_SUMMARY.source + ', reproduced as written.';
+    }
+    var note = document.getElementById('revNote');
+    if (note) note.textContent = 'Reviews are reproduced as published by the reviewers. Names are shown as they appear on the original review.';
+    sec.hidden = false;
+  })();
 
   /* ---- Devalokam assistant ---------------------------------------- */
   (function () {
