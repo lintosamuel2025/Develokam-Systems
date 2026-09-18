@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Devalokam Systems, Nooranad, Kerala — your security is our priority. IT consulting, hardware and networking, server management, technical support, AMC, cyber security, CCTV, automation gates and solar. Call or WhatsApp 8089282351.">
-<meta name="theme-color" content="#14110A">
+<meta name="theme-color" content="#0F0D08">
 <title>Devalokam Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -544,6 +544,150 @@ details .ans{padding:0 20px 18px; font-size:.92rem; color:var(--ink-2); max-widt
   .nav.open{display:flex}
 }
 </style>
+
+<style>
+/* ============ black & gold surfaces + larger type ============ */
+:root{
+  --dk-bg:#0F0D08; --dk-bg-2:#17140D; --dk-ink:#F7F2E5; --dk-ink-2:#BCB39C;
+  --dk-ink-3:#8E8571; --dk-line:#2E2819; --gold:#E7C169; --gold-2:#C9992F; --gold-3:#F6E2A8;
+  --gold-rule:linear-gradient(90deg,transparent,#C9992F 22%,#F6E2A8 50%,#C9992F 78%,transparent);
+}
+
+/* --- type scale --- */
+h1{font-size:clamp(2.35rem,1.45rem + 3.5vw,4rem)}
+h2{font-size:clamp(1.8rem,1.3rem + 1.95vw,2.8rem)}
+h3{font-size:1.2rem}
+.lede{font-size:1.12rem; line-height:1.66}
+.svc p{font-size:.95rem}
+.check li{font-size:.95rem; line-height:1.62}
+.hero-brand-name{font-size:1.72rem}
+.stat b{font-size:2.45rem}
+.vac-title{font-size:1.75rem}
+@media (max-width:520px){
+  .lede{font-size:1.04rem}
+  .hero-brand-name{font-size:1.35rem}
+  .stat b{font-size:2rem}
+}
+
+/* --- shared dark surface --- */
+.surface-dark{
+  background:
+    radial-gradient(900px 420px at 10% -12%, rgba(231,193,105,.15), transparent 62%),
+    radial-gradient(760px 400px at 94% 112%, rgba(231,193,105,.10), transparent 60%),
+    linear-gradient(180deg,var(--dk-bg),var(--dk-bg-2));
+  color:var(--dk-ink); position:relative;
+}
+.surface-dark::after{
+  content:""; position:absolute; left:0; right:0; top:0; height:1px; z-index:2;
+  background:var(--gold-rule); opacity:.65; pointer-events:none;
+}
+.surface-dark h1,.surface-dark h2,.surface-dark h3,.surface-dark h4{color:var(--dk-ink)}
+.surface-dark p,.surface-dark .lede{color:var(--dk-ink-2)}
+.surface-dark .eyebrow{color:var(--gold)}
+.surface-dark .eyebrow::before{background:var(--gold-2)}
+.surface-dark .muted{color:var(--dk-ink-3)}
+.surface-dark .svc{background:rgba(255,255,255,.035); border-color:var(--dk-line)}
+.surface-dark .svc:hover{background:rgba(255,255,255,.058); border-color:rgba(231,193,105,.42)}
+.surface-dark .svc::after{background:var(--gold)}
+.surface-dark .svc .ico{background:rgba(231,193,105,.14); color:var(--gold)}
+.surface-dark .tag{background:rgba(255,255,255,.04); border-color:var(--dk-line); color:var(--dk-ink-3)}
+.surface-dark .check li{color:var(--dk-ink-2)}
+.surface-dark .check li strong{color:var(--dk-ink)}
+.surface-dark .review{background:rgba(255,255,255,.035); border-color:var(--dk-line)}
+.surface-dark .review blockquote{color:var(--dk-ink-2)}
+.surface-dark .review footer{border-top-color:var(--dk-line)}
+.surface-dark .rev-who b{color:var(--dk-ink)}
+.surface-dark .rev-who span,.surface-dark .rev-src{color:var(--dk-ink-3); border-color:var(--dk-line)}
+.surface-dark .btn-primary{background:#EFE9D9; color:#14110A}
+.surface-dark .btn-primary:hover{background:#fff}
+.surface-dark .btn-ghost{background:transparent; color:var(--dk-ink); border-color:rgba(231,193,105,.42)}
+.surface-dark .btn-ghost:hover{background:rgba(231,193,105,.12); border-color:var(--gold); color:var(--gold-3)}
+.surface-dark .formnote{color:var(--dk-ink-3)}
+
+/* --- header --- */
+.site-head{background:rgba(15,13,8,.92); border-bottom:1px solid var(--dk-line); backdrop-filter:saturate(1.4) blur(14px)}
+.site-head .brand,.site-head .brand-name{color:var(--dk-ink)}
+.site-head .brand-sub{color:var(--dk-ink-3)}
+.nav a{color:var(--dk-ink-2)}
+.nav a:hover{color:var(--gold-3); background:rgba(255,255,255,.06)}
+.nav a[aria-current="page"]{color:var(--gold); background:rgba(231,193,105,.15)}
+.phone-link,.wa-link{color:var(--dk-ink); border-color:rgba(231,193,105,.3)}
+.phone-link:hover,.wa-link:hover{background:rgba(231,193,105,.13); border-color:var(--gold)}
+.head-cta .btn-primary{background:#EFE9D9; color:#14110A}
+.head-cta .btn-primary:hover{background:#fff}
+.menu-btn{background:rgba(255,255,255,.06); border-color:var(--dk-line); color:var(--gold)}
+@media (max-width:760px){
+  .nav{background:#14110A; border-bottom-color:var(--dk-line)}
+}
+
+/* --- hero --- */
+.hero{
+  background:
+    radial-gradient(1000px 500px at 8% -14%, rgba(231,193,105,.17), transparent 60%),
+    radial-gradient(820px 460px at 96% 106%, rgba(231,193,105,.11), transparent 58%),
+    linear-gradient(180deg,var(--dk-bg),var(--dk-bg-2));
+  color:var(--dk-ink); border-bottom:1px solid var(--dk-line);
+}
+.hero::before{
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 88px);
+  opacity:1; mask-image:linear-gradient(180deg,#000 0%,transparent 92%);
+}
+.hero h1{color:var(--dk-ink)}
+.hero h1 em{color:var(--gold)}
+.hero .lede{color:var(--dk-ink-2)}
+.hero .eyebrow{color:var(--gold)}
+.hero .eyebrow::before{background:var(--gold-2)}
+.hero-brand-name{color:var(--dk-ink)}
+.hero .trust-row{border-top-color:var(--dk-line)}
+.hero .trust-row li{color:var(--dk-ink-2)}
+.hero .btn-primary{background:#EFE9D9; color:#14110A}
+.hero .btn-primary:hover{background:#fff}
+.hero .btn-ghost{background:transparent; color:var(--dk-ink); border-color:rgba(231,193,105,.42)}
+.hero .btn-ghost:hover{background:rgba(231,193,105,.12); border-color:var(--gold); color:var(--gold-3)}
+.hero .ops{background:rgba(255,255,255,.045); border-color:rgba(231,193,105,.26); backdrop-filter:blur(2px)}
+.hero .ops-top,.hero .ops-foot{background:rgba(0,0,0,.28)}
+
+/* --- page headers --- */
+.phead{
+  background:
+    radial-gradient(900px 420px at 10% -20%, rgba(231,193,105,.15), transparent 62%),
+    linear-gradient(180deg,var(--dk-bg),var(--dk-bg-2));
+  color:var(--dk-ink); border-bottom:1px solid var(--dk-line);
+}
+.phead::before{background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 88px); opacity:1}
+.phead h1{color:var(--dk-ink)}
+.phead .lede{color:var(--dk-ink-2)}
+.phead .eyebrow{color:var(--gold)}
+.phead .eyebrow::before{background:var(--gold-2)}
+
+/* --- footer --- */
+.site-foot{
+  background:linear-gradient(180deg,var(--dk-bg-2),var(--dk-bg));
+  border-top:1px solid var(--dk-line); color:var(--dk-ink-2); position:relative;
+}
+.site-foot::before{content:""; position:absolute; left:0; right:0; top:0; height:1px; background:var(--gold-rule); opacity:.55}
+.site-foot .brand-name{color:var(--dk-ink)}
+.site-foot .brand-sub,.site-foot .muted{color:var(--dk-ink-3)}
+.foot-about p{color:var(--dk-ink-2)}
+.foot-grid h4{color:var(--gold)}
+.foot-grid li a{color:var(--dk-ink-2)}
+.foot-grid li a:hover{color:var(--gold-3)}
+.foot-bar{border-top-color:var(--dk-line); color:var(--dk-ink-3)}
+.foot-bar .mono{color:var(--gold-2)}
+
+/* --- map --- */
+.mapcard{border:1px solid var(--line); border-radius:13px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow-sm)}
+.mapcard-head{display:flex; align-items:center; gap:11px; padding:13px 16px; border-bottom:1px solid var(--line); background:var(--surface-2)}
+.mapcard-head b{font-family:var(--mono); font-size:.7rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-2)}
+.mapcard-head .ico{width:30px;height:30px;border-radius:8px;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;flex:none}
+.mapstage{position:relative; aspect-ratio:16/10; max-width:100%; background:
+  repeating-linear-gradient(45deg,var(--surface-2) 0 14px,var(--surface-3) 14px 28px); display:grid; place-items:center}
+.mapstage iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.mapload{display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; padding:26px; max-width:38ch}
+.mapload p{font-size:.86rem; color:var(--ink-2)}
+.mapcard-foot{display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; padding:14px 16px; border-top:1px solid var(--line)}
+.mapcard-foot address{font-style:normal; font-size:.86rem; color:var(--ink-2); line-height:1.5}
+</style>
 <style>
 :root{color-scheme:light dark; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
 html{-webkit-text-size-adjust:100%}
@@ -798,7 +942,7 @@ img{max-width:100%}
     </div>
   </section>
 
-  <section class="band band-tint">
+  <section class="band surface-dark">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Beyond core IT</p>
@@ -869,15 +1013,19 @@ img{max-width:100%}
     </div>
   </section>
 
-  <section class="band" id="testimonials" hidden>
+  <section class="band surface-dark" id="testimonials">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Client feedback</p>
         <h2>What our customers say</h2>
-        <p class="lede" id="revLede"></p>
+        <p class="lede" id="revLede">Clients leave their feedback publicly on Google, where you can read it in full and unedited &mdash; including anything critical.</p>
       </div>
       <div class="grid-3" id="revGrid"></div>
-      <p class="formnote" id="revNote" style="margin-top:16px"></p>
+      <div class="hero-actions" id="revCta" style="padding-top:4px">
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Devalokam%20Systems%20Nooranad%20Kerala" target="_blank" rel="noopener">Read our reviews on Google</a>
+        <a class="btn btn-ghost" href="#/contact" data-link>Become a client</a>
+      </div>
+      <p class="formnote" id="revNote" style="margin-top:18px"></p>
     </div>
   </section>
 
@@ -1368,6 +1516,23 @@ img{max-width:100%}
             <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-pin"/></svg></span>
             <span><b>Office</b><span class="big">Nooranad, Kerala</span><p>Building No 179, Near CS Stores, Mattappally, Nooranad, Kerala 690504. Onsite engineering across Kerala, remote support anywhere in India, and sites outside the standard area covered by arrangement.</p></span>
           </div>
+          <div class="mapcard">
+            <div class="mapcard-head">
+              <span class="ico"><svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <b>Find us</b>
+            </div>
+            <div class="mapstage" id="mapStage">
+              <div class="mapload" id="mapLoad">
+                <p>The map is loaded from Google only when you ask for it, so nothing is requested from Google until you tap below.</p>
+                <button class="btn btn-ghost" type="button" id="mapBtn">Load map</button>
+              </div>
+            </div>
+            <div class="mapcard-foot">
+              <address>Building No 179, Near CS Stores,<br>Mattappally, Nooranad, Kerala 690504</address>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Devalokam%20Systems%2C%20Building%20No%20179%2C%20Near%20CS%20Stores%2C%20Mattappally%2C%20Nooranad%2C%20Kerala%20690504" target="_blank" rel="noopener">Get directions</a>
+            </div>
+          </div>
+
           <div class="ccard">
             <span class="ico"><svg width="19" height="19" aria-hidden="true"><use href="#i-clock"/></svg></span>
             <span><b>Hours</b><span class="big">Mon&ndash;Sat, 9:00&ndash;19:00</span><p>Sunday 11:00&ndash;19:00. Extended and 24&times;7 cover available on Standard and Enterprise maintenance contracts.</p></span>
@@ -1422,24 +1587,24 @@ img{max-width:100%}
               <textarea id="enq-msg" name="message" placeholder="Roughly how many users and sites, what servers or network gear you run, and what is prompting the enquiry."></textarea>
               <span class="err" id="e-msg" aria-live="polite"></span>
             </div>
-            <button class="btn btn-primary" type="submit" style="align-self:flex-start">Send enquiry <svg width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-            <p class="formnote">Urgent outage? Call <a href="tel:+918089282351">8089282351</a> or <a href="https://wa.me/918089282351?text=Urgent%3A%20we%20have%20an%20outage." target="_blank" rel="noopener">message us on WhatsApp</a> — both reach an engineer faster than this form.</p>
+            <span class="err" id="e-send" aria-live="assertive"></span>
+            <button class="btn btn-primary" id="enqSubmit" type="submit" style="align-self:flex-start">Send enquiry <svg width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <p class="formnote">Goes straight to our sales desk &mdash; no mail app opens. Urgent outage? Call <a href="tel:+918089282351">8089282351</a> or <a href="https://wa.me/918089282351?text=Urgent%3A%20we%20have%20an%20outage." target="_blank" rel="noopener">message us on WhatsApp</a>; both reach an engineer faster than this form.</p>
           </form>
 
           <div class="sent" id="enqSent" hidden role="status">
             <span class="ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg></span>
             <div>
-              <h2 style="font-size:1.28rem">Enquiry ready to send</h2>
-              <p class="formnote" style="margin-top:7px">Here is what you entered. Send it straight to us on WhatsApp, open it in your own mail app, or call — whichever suits you. All three reach the same team.</p>
+              <h2 style="font-size:1.32rem">Enquiry received</h2>
+              <p class="formnote" style="margin-top:7px" id="enqSentMsg">Your enquiry has been sent to our sales desk. We reply within one business day, and sooner if you marked it urgent.</p>
             </div>
             <dl id="enqSummary"></dl>
             <div class="hero-actions" style="padding-top:0">
               <a class="btn btn-wa" id="enqWa" href="https://wa.me/918089282351" target="_blank" rel="noopener">
-                <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Send on WhatsApp
+                <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Continue on WhatsApp
               </a>
-              <a class="btn btn-primary" id="enqMailto" href="mailto:sales@devalokamsystems.in">Send by email</a>
               <a class="btn btn-ghost" href="tel:+918089282351">Call 8089282351</a>
-              <button class="btn btn-ghost" type="button" id="enqEdit">Edit enquiry</button>
+              <button class="btn btn-ghost" type="button" id="enqEdit">Send another enquiry</button>
             </div>
           </div>
         </div>
@@ -1563,6 +1728,31 @@ img{max-width:100%}
 
 <script>
 (function () {
+  /* ------------------------------------------------------------------
+     MAIL DELIVERY
+     Submissions are POSTed here and arrive as email at the address in
+     the URL. FormSubmit needs no account, but the FIRST submission from
+     a new domain triggers a one-time confirmation email — click the link
+     in it once and every later submission is delivered silently.
+     To move to Formspree / Web3Forms later, change this one line.
+  ------------------------------------------------------------------ */
+  var MAIL_ENDPOINT = 'https://formsubmit.co/ajax/sales@devalokamsystems.in';
+  var SALES_EMAIL = 'sales@devalokamsystems.in';
+
+  function sendToSales(subject, fields) {
+    var payload = { _subject: subject, _template: 'table', _captcha: 'false' };
+    Object.keys(fields).forEach(function (k) { payload[k] = fields[k]; });
+    if (fields.Email) payload._replyto = fields.Email;
+    return fetch(MAIL_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json().catch(function () { return {}; });
+    });
+  }
+
   var PAGES = {
     '/':         { el: 'page-home',     title: 'Devalokam Systems' },
     '/services': { el: 'page-services', title: 'Services — Devalokam Systems' },
@@ -1623,7 +1813,6 @@ img{max-width:100%}
   var form = document.getElementById('enqForm');
   var sent = document.getElementById('enqSent');
   var summary = document.getElementById('enqSummary');
-  var mailto = document.getElementById('enqMailto');
   var editBtn = document.getElementById('enqEdit');
 
   function setError(fieldId, errId, message) {
@@ -1681,10 +1870,6 @@ img{max-width:100%}
       });
 
       var body = rows.map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
-      mailto.href = 'mailto:sales@devalokamsystems.in'
-        + '?subject=' + encodeURIComponent('Enquiry — ' + service + ' — ' + (company || name))
-        + '&body=' + encodeURIComponent(body);
-
       var waBtn = document.getElementById('enqWa');
       if (waBtn) {
         waBtn.href = 'https://wa.me/918089282351?text=' + encodeURIComponent(
@@ -1692,9 +1877,26 @@ img{max-width:100%}
         );
       }
 
-      form.hidden = true;
-      sent.hidden = false;
-      sent.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      var btn = document.getElementById('enqSubmit');
+      var sendErr = document.getElementById('e-send');
+      var original = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      sendErr.textContent = '';
+
+      sendToSales('Website enquiry — ' + service + ' — ' + (company || name), {
+        Name: name, Company: company || 'Not given', Phone: phone,
+        Email: email, Service: service, Details: message
+      }).then(function () {
+        form.hidden = true;
+        sent.hidden = false;
+        sent.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }).catch(function () {
+        sendErr.textContent = 'We could not send that just now. Please call 8089282351 or use the WhatsApp button — your details are still in the form.';
+      }).then(function () {
+        btn.disabled = false;
+        btn.innerHTML = original;
+      });
     });
   }
 
@@ -1710,6 +1912,8 @@ img{max-width:100%}
     var sec = document.getElementById('testimonials');
     var grid = document.getElementById('revGrid');
     if (!sec || !grid || !REVIEWS.length) return;
+    var cta = document.getElementById('revCta');
+    if (cta) cta.hidden = true;
 
     function stars(nStars) {
       var wrap = document.createElement('div');
@@ -1763,7 +1967,6 @@ img{max-width:100%}
     }
     var note = document.getElementById('revNote');
     if (note) note.textContent = 'Reviews are reproduced as published by the reviewers. Names are shown as they appear on the original review.';
-    sec.hidden = false;
   })();
 
   /* ---- Devalokam assistant ---------------------------------------- */
@@ -1914,41 +2117,51 @@ img{max-width:100%}
       var subject = 'Website enquiry ' + ref + ' — ' + (answers.need || 'General') +
                     ' — ' + (contact.company || contact.name);
 
-      var acts = document.createElement('div');
-      acts.className = 'bot-actions';
+      var status = document.createElement('p');
+      status.className = 'bot-note';
+      status.textContent = 'Sending to our sales desk…';
+      foot.appendChild(status);
 
-      var mail = document.createElement('a');
-      mail.className = 'btn btn-primary';
-      mail.href = 'mailto:' + SALES + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(report);
-      mail.textContent = 'Email to Devalokam';
+      var fields = { Reference: ref };
+      STEPS.forEach(function (st) { fields[st.label] = answers[st.id] || '—'; });
+      fields.Name = contact.name;
+      fields.Company = contact.company || 'Not given';
+      fields.Phone = contact.phone;
+      fields.Email = contact.email;
+      if (contact.note) fields.Notes = contact.note;
 
-      var wa = document.createElement('a');
-      wa.className = 'btn btn-wa';
-      wa.target = '_blank'; wa.rel = 'noopener';
-      wa.href = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(report);
-      wa.textContent = 'Send on WhatsApp';
+      sendToSales(subject, fields).then(function () {
+        status.textContent = 'Sent. Our team has your enquiry and will reply within one business day.';
+        say('Sent — quote reference ' + ref + ' if you call us about it.', 'bot');
+      }).catch(function () {
+        status.textContent = 'We could not reach our sales desk from your browser. Send it on WhatsApp instead, or call us — nothing you typed is lost.';
+      }).then(function () {
+        var acts = document.createElement('div');
+        acts.className = 'bot-actions';
 
-      acts.appendChild(mail); acts.appendChild(wa);
-      foot.appendChild(acts);
+        var wa = document.createElement('a');
+        wa.className = 'btn btn-wa';
+        wa.target = '_blank'; wa.rel = 'noopener';
+        wa.href = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(report);
+        wa.textContent = 'Continue on WhatsApp';
 
-      var acts2 = document.createElement('div');
-      acts2.className = 'bot-actions';
-      var call = document.createElement('a');
-      call.className = 'btn btn-ghost'; call.href = 'tel:+91' + WA_NUM.slice(2);
-      call.textContent = 'Call 8089282351';
-      var again = document.createElement('button');
-      again.type = 'button'; again.className = 'btn btn-ghost';
-      again.textContent = 'Start again';
-      again.addEventListener('click', reset);
-      acts2.appendChild(call); acts2.appendChild(again);
-      foot.appendChild(acts2);
+        var call = document.createElement('a');
+        call.className = 'btn btn-ghost'; call.href = 'tel:+91' + WA_NUM.slice(2);
+        call.textContent = 'Call 8089282351';
 
-      var note = document.createElement('p');
-      note.className = 'bot-note';
-      note.textContent = 'Nothing is sent until you tap one of the buttons above — it opens your own mail app or WhatsApp with the summary already written.';
-      foot.appendChild(note);
+        acts.appendChild(wa); acts.appendChild(call);
+        foot.appendChild(acts);
 
-      mail.focus();
+        var again = document.createElement('button');
+        again.type = 'button'; again.className = 'btn btn-ghost';
+        again.style.width = '100%';
+        again.textContent = 'Start a new enquiry';
+        again.addEventListener('click', reset);
+        foot.appendChild(again);
+
+        requestAnimationFrame(function () { log.scrollTop = log.scrollHeight; });
+      });
+
       requestAnimationFrame(function () { log.scrollTop = log.scrollHeight; });
     }
 
@@ -1987,9 +2200,31 @@ img{max-width:100%}
     editBtn.addEventListener('click', function () {
       sent.hidden = true;
       form.hidden = false;
+      form.reset();
+      document.getElementById('e-send').textContent = '';
       document.getElementById('enq-name').focus();
     });
   }
+
+  /* ---- click-to-load map (nothing reaches Google until asked) ---- */
+  (function () {
+    var btn = document.getElementById('mapBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var stage = document.getElementById('mapStage');
+      var hint = document.getElementById('mapLoad');
+      var f = document.createElement('iframe');
+      f.src = 'https://www.google.com/maps?q=' +
+        encodeURIComponent('Devalokam Systems, Building No 179, Near CS Stores, Mattappally, Nooranad, Kerala 690504') +
+        '&z=15&output=embed';
+      f.loading = 'lazy';
+      f.title = 'Map showing the Devalokam Systems office in Nooranad, Kerala';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      f.setAttribute('allowfullscreen', '');
+      if (hint) hint.remove();
+      stage.appendChild(f);
+    });
+  })();
 })();
 </script>
 
