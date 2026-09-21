@@ -1521,8 +1521,8 @@ img{max-width:100%}
                 <span class="err" id="e-cv-email" aria-live="polite"></span>
               </div>
               <div class="field" id="f-cv-note">
-                <label for="cv-note">A fault you diagnosed that took more than one attempt (optional)</label>
-                <textarea id="cv-note" name="note" placeholder="A couple of lines is enough."></textarea>
+                <label for="cv-note">Covering letter (optional)</label>
+                <textarea id="cv-note" name="note" placeholder="A few lines on why you're a good fit for this role."></textarea>
               </div>
               <div class="field" id="f-cv-file">
                 <label for="cv-file">Your CV / resume &mdash; PDF or Word, up to 5&nbsp;MB</label>
@@ -2061,7 +2061,7 @@ img{max-width:100%}
       data.append('Phone', phone);
       data.append('Email', email);
       data.append('Role', 'IT Technician');
-      data.append('Note', note || 'Not given');
+      data.append('Covering letter', note || 'Not given');
       data.append('resume', file, file.name);
 
       fetch(MAIL_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
