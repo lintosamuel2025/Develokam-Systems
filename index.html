@@ -1499,19 +1499,24 @@ img{max-width:100%}
           <div class="vac-apply" style="flex-direction:column; align-items:stretch; gap:18px">
             <div>
               <h4 class="vac-sub" style="margin-bottom:6px">How to apply</h4>
-              <p style="color:var(--ink-2); font-size:.93rem; max-width:60ch">Upload your CV below and it goes straight to our sales desk &mdash; no mail app opens. Tell us in a couple of lines about a fault you diagnosed that took more than one attempt; we reply to every application.</p>
+              <p style="color:var(--ink-2); font-size:.93rem; max-width:60ch">Upload your CV below and it goes straight to our sales desk with your file attached. Submitting briefly reloads this page and brings you right back here with a confirmation; we reply to every application.</p>
             </div>
 
-            <form class="cv-form" id="cvForm" novalidate>
+            <form class="cv-form" id="cvForm" novalidate method="POST" enctype="multipart/form-data" action="https://formsubmit.co/sales@devalokamsystems.in">
+              <input type="hidden" name="_subject" value="Website application — IT Technician">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="Role" value="IT Technician">
+              <input type="hidden" name="_next" id="cvNext" value="">
               <div class="row2">
                 <div class="field" id="f-cv-name">
                   <label for="cv-name">Your name</label>
-                  <input id="cv-name" name="name" type="text" autocomplete="name" placeholder="Your full name">
+                  <input id="cv-name" name="Name" type="text" autocomplete="name" placeholder="Your full name">
                   <span class="err" id="e-cv-name" aria-live="polite"></span>
                 </div>
                 <div class="field" id="f-cv-phone">
                   <label for="cv-phone">Phone</label>
-                  <input id="cv-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile">
+                  <input id="cv-phone" name="Phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile">
                   <span class="err" id="e-cv-phone" aria-live="polite"></span>
                 </div>
               </div>
@@ -1522,11 +1527,11 @@ img{max-width:100%}
               </div>
               <div class="field" id="f-cv-note">
                 <label for="cv-note">Covering letter (optional)</label>
-                <textarea id="cv-note" name="note" placeholder="A few lines on why you're a good fit for this role."></textarea>
+                <textarea id="cv-note" name="Covering letter" placeholder="A few lines on why you're a good fit for this role."></textarea>
               </div>
               <div class="field" id="f-cv-file">
                 <label for="cv-file">Your CV / resume &mdash; PDF or Word, up to 5&nbsp;MB</label>
-                <input id="cv-file" name="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <input id="cv-file" name="attachment" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
                 <span class="err" id="e-cv-file" aria-live="polite"></span>
               </div>
               <span class="err" id="e-cv-send" aria-live="assertive"></span>
@@ -2007,23 +2012,28 @@ img{max-width:100%}
   }
 
   /* ---- careers: CV / resume upload ----------------------------------
-     Sent as multipart/form-data straight to FormSubmit (same endpoint as
-     the enquiry form) so the attached file reaches sales@devalokamsystems.in
-     without opening a mail app or leaving the page. FormSubmit's ajax
-     endpoint accepts FormData bodies with file fields directly — the
-     browser sets the multipart boundary automatically, so no
-     Content-Type header is set here on purpose.                          */
+     A real HTML form POST (not fetch/AJAX) straight to FormSubmit, with
+     enctype=multipart/form-data — this is required for the attached file
+     to actually reach sales@devalokamsystems.in. FormSubmit's AJAX/JSON
+     endpoint (used by the enquiry form above) silently drops file fields,
+     which is why an earlier version of this form sent the file as
+     "missing". A real form submission means the browser leaves the page
+     briefly; _next brings the visitor straight back to this section with
+     a confirmation shown, via the ?applied=1 flag handled below.        */
   var cvForm = document.getElementById('cvForm');
   var cvSent = document.getElementById('cvSent');
+  var cvNext = document.getElementById('cvNext');
   var CV_MAX_BYTES = 5 * 1024 * 1024;
+
+  if (cvNext) {
+    cvNext.value = location.origin + location.pathname + '?applied=1#/careers';
+  }
 
   if (cvForm) {
     cvForm.addEventListener('submit', function (ev) {
-      ev.preventDefault();
       var name = document.getElementById('cv-name').value.trim();
       var phone = document.getElementById('cv-phone').value.trim();
       var email = document.getElementById('cv-email').value.trim();
-      var note = document.getElementById('cv-note').value.trim();
       var fileInput = document.getElementById('cv-file');
       var file = fileInput.files && fileInput.files[0];
       var ok = true, firstBad = null;
@@ -2043,46 +2053,30 @@ img{max-width:100%}
       else if (file.size > CV_MAX_BYTES) { setError('f-cv-file', 'e-cv-file', 'That file is over 5 MB — please attach a smaller copy.'); ok = false; firstBad = firstBad || 'cv-file'; }
       else setError('f-cv-file', 'e-cv-file', '');
 
-      if (!ok) { var bad = document.getElementById(firstBad); if (bad) bad.focus(); return; }
+      if (!ok) {
+        ev.preventDefault();
+        var bad = document.getElementById(firstBad); if (bad) bad.focus();
+        return;
+      }
 
+      // Valid — let the browser submit the real multipart form so the
+      // file rides along. Just show a submitting state before it navigates.
       var btn = document.getElementById('cvSubmit');
-      var sendErr = document.getElementById('e-cv-send');
-      var original = btn.innerHTML;
       btn.disabled = true;
       btn.textContent = 'Submitting…';
-      sendErr.textContent = '';
-
-      var data = new FormData();
-      data.append('_subject', 'Website application — IT Technician — ' + name);
-      data.append('_template', 'table');
-      data.append('_captcha', 'false');
-      data.append('_replyto', email);
-      data.append('Name', name);
-      data.append('Phone', phone);
-      data.append('Email', email);
-      data.append('Role', 'IT Technician');
-      data.append('Covering letter', note || 'Not given');
-      data.append('resume', file, file.name);
-
-      fetch(MAIL_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
-        .then(function (r) {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.json().catch(function () { return {}; });
-        })
-        .then(function () {
-          cvForm.hidden = true;
-          cvSent.hidden = false;
-          cvSent.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-        })
-        .catch(function () {
-          sendErr.textContent = 'We could not send that just now. Please message us on WhatsApp or email sales@devalokamsystems.in with your CV attached — your details are still in the form.';
-        })
-        .then(function () {
-          btn.disabled = false;
-          btn.innerHTML = original;
-        });
     });
   }
+
+  // Coming back from FormSubmit after a successful upload: show the
+  // confirmation panel and strip the flag from the URL.
+  (function checkCvReturn() {
+    if (!/(^|[?&])applied=1\b/.test(location.search)) return;
+    if (location.hash.replace(/^#/, '') !== '/careers') location.hash = '#/careers';
+    if (cvForm) cvForm.hidden = true;
+    if (cvSent) { cvSent.hidden = false; cvSent.scrollIntoView({ block: 'center', behavior: 'auto' }); }
+    var cleanUrl = location.pathname + location.hash;
+    history.replaceState(null, '', cleanUrl);
+  })();
 
 
   /* ---- client reviews -------------------------------------------------
