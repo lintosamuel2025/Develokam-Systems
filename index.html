@@ -1504,7 +1504,6 @@ img{max-width:100%}
 
             <form class="cv-form" id="cvForm" novalidate method="POST" enctype="multipart/form-data" action="https://formsubmit.co/sales@devalokamsystems.in">
               <input type="hidden" name="_subject" value="Website application — IT Technician">
-              <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="Role" value="IT Technician">
               <input type="hidden" name="_next" id="cvNext" value="">
@@ -2048,7 +2047,7 @@ img{max-width:100%}
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setError('f-cv-email', 'e-cv-email', 'Enter an email address we can reply to.'); ok = false; firstBad = firstBad || 'cv-email'; }
       else setError('f-cv-email', 'e-cv-email', '');
 
-      if (!file) { setError('f-cv-file', 'e-cv-file', 'Attach your CV as a PDF or Word document.'); ok = false; firstBad = firstBad || 'cv-file'; }
+      if (!file || file.size === 0) { setError('f-cv-file', 'e-cv-file', 'Attach your CV as a PDF or Word document.'); ok = false; firstBad = firstBad || 'cv-file'; }
       else if (!/\.(pdf|doc|docx)$/i.test(file.name)) { setError('f-cv-file', 'e-cv-file', 'Please attach a PDF or Word (.doc/.docx) file.'); ok = false; firstBad = firstBad || 'cv-file'; }
       else if (file.size > CV_MAX_BYTES) { setError('f-cv-file', 'e-cv-file', 'That file is over 5 MB — please attach a smaller copy.'); ok = false; firstBad = firstBad || 'cv-file'; }
       else setError('f-cv-file', 'e-cv-file', '');
