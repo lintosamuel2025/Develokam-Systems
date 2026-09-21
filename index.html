@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Devalokam Systems, Nooranad, Kerala — your security is our priority. IT consulting, hardware and networking, server management, technical support, AMC, cyber security, CCTV, automation gates and solar. Call or WhatsApp 8089282351.">
@@ -8,7 +6,7 @@
 <title>Devalokam Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&family=Instrument+Sans:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
 :root{
   --paper:#FBFAF6; --surface:#FFFFFF; --surface-2:#F5F2EA; --surface-3:#EFEADC;
@@ -189,8 +187,8 @@ section.band{padding-block:clamp(52px,6vw,88px)}
 .ops > *{position:relative; z-index:1}
 .ops-top{display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid var(--panel-line); background:rgba(255,255,255,.028)}
 .ops-title{font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:#D8B76E}
-.ops-live{margin-left:auto; display:flex; align-items:center; gap:7px; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:#57C295}
-.pulse{width:7px; height:7px; border-radius:50%; background:#57C295; animation:pulse 2.4s ease-in-out infinite}
+.ops-live{margin-left:auto; display:flex; align-items:center; gap:7px; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:#E0B65E}
+.pulse{width:7px; height:7px; border-radius:50%; background:#E0B65E; animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1; transform:scale(1)}50%{opacity:.35; transform:scale(.8)}}
 .ops-row{display:flex; align-items:center; gap:14px; padding:14px 16px; border-bottom:1px solid var(--panel-line)}
 .ops-row:last-of-type{border-bottom:0}
@@ -342,6 +340,11 @@ td.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:n
 
 form.enq[hidden],.sent[hidden]{display:none!important}
 form.enq{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px 24px; box-shadow:var(--shadow-md); display:flex; flex-direction:column; gap:16px}
+form.cv-form[hidden]{display:none!important}
+form.cv-form{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px 22px; display:flex; flex-direction:column; gap:14px}
+.field input[type="file"]{padding:9px 12px; font-size:.86rem; cursor:pointer}
+.field input[type="file"]::file-selector-button{font-family:var(--display); font-size:.82rem; font-weight:600; border:0; border-radius:8px; padding:7px 12px; margin-right:10px; background:var(--gold-rule,var(--gold)); color:#1A1408; cursor:pointer}
+#cvSubmit[disabled]{opacity:.6; cursor:not-allowed}
 .field{display:flex; flex-direction:column; gap:6px}
 .field label{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2)}
 .field input,.field select,.field textarea{
@@ -560,7 +563,7 @@ h3{font-size:1.2rem}
 .lede{font-size:1.12rem; line-height:1.66}
 .svc p{font-size:.95rem}
 .check li{font-size:.95rem; line-height:1.62}
-.hero-brand-name{font-size:1.72rem}
+.hero-brand-name{font-size:2rem}
 .stat b{font-size:2.45rem}
 .vac-title{font-size:1.75rem}
 @media (max-width:520px){
@@ -607,6 +610,7 @@ h3{font-size:1.2rem}
 /* --- header --- */
 .site-head{background:rgba(15,13,8,.92); border-bottom:1px solid var(--dk-line); backdrop-filter:saturate(1.4) blur(14px)}
 .site-head .brand,.site-head .brand-name{color:var(--dk-ink)}
+.site-head .brand-name{font-size:1.18rem; line-height:1}
 .site-head .brand-sub{color:var(--dk-ink-3)}
 .nav a{color:var(--dk-ink-2)}
 .nav a:hover{color:var(--gold-3); background:rgba(255,255,255,.06)}
@@ -688,15 +692,75 @@ h3{font-size:1.2rem}
 .mapcard-foot{display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; padding:14px 16px; border-top:1px solid var(--line)}
 .mapcard-foot address{font-style:normal; font-size:.86rem; color:var(--ink-2); line-height:1.5}
 </style>
+
+<style>
+/* ============ typography: Cambria (Caladea fallback) ============ */
+:root{
+  --serif:Cambria,Caladea,Georgia,"Times New Roman",serif;
+  --body:Cambria,Caladea,Georgia,"Times New Roman",serif;
+  --display:Calibri,Carlito,"Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:Cambria,Caladea,Georgia,serif;
+}
+
+body{ font-family:var(--body); font-size:16.5px; line-height:1.66; }
+h1,h2{ font-family:var(--serif); font-weight:700; letter-spacing:-.004em; }
+h1{ line-height:1.1; }
+h2{ line-height:1.16; }
+h3,h4{ font-family:var(--serif); font-weight:700; letter-spacing:0; }
+.lede{ font-family:var(--serif); font-size:1.14rem; line-height:1.68; }
+.svc p,.check li,.review blockquote,.ans,.vac-body p{ font-family:var(--serif); }
+
+/* small caps labels — spaced Cambria instead of monospace */
+.eyebrow,.brand-sub,.ops-title,.ops-live,.ops-foot,.tag,.stat i,.step .n,
+.spec h4,.spec dt,.field label,.ccard b,.foot-grid h4,.foot-bar .mono,
+thead th,.vac-meta,.vac-sub,.vac-facts dt,.rev-src,.bot-head span.sub,
+.bot-report h5,.bot-report dt,.sent dt,.mapcard-head b,.card .n{
+  font-family:var(--serif); font-weight:700;
+}
+.eyebrow{ font-size:.78rem; letter-spacing:.18em; }
+.brand-sub{ font-size:.64rem; letter-spacing:.2em; }
+.tag{ font-size:.72rem; letter-spacing:.06em; font-weight:400 }
+.stat i,.step .n,.spec h4,.field label,.ccard b,.foot-grid h4,
+.vac-sub,.vac-facts dt,.rev-src,.bot-report h5,.bot-report dt,.sent dt,
+.mapcard-head b,.card .n,thead th{ font-size:.74rem; letter-spacing:.15em; }
+.ops-title{ font-size:.78rem; letter-spacing:.15em; }
+.ops-live{ font-size:.72rem; letter-spacing:.12em; }
+.ops-foot{ font-size:.74rem; letter-spacing:.07em; }
+.foot-bar .mono{ font-size:.8rem; letter-spacing:.08em; }
+.vac-meta{ font-size:.82rem; letter-spacing:.07em; }
+.bot-head span.sub{ font-size:.68rem; letter-spacing:.12em; }
+
+/* figures line up in data contexts */
+.spec dd,.ops-row .val,td.num,.stat b,.pill,.phone-link,.wa-link{
+  font-family:var(--serif); font-variant-numeric:tabular-nums; letter-spacing:0;
+}
+.spec dd,.ops-row .val{ font-size:.9rem; }
+.phone-link,.wa-link{ font-size:.94rem; font-weight:700; }
+.pill{ font-size:.74rem; letter-spacing:.04em; }
+
+/* UI chrome stays in a clean sans */
+.btn,.nav a,.chip,.menu-btn,.bot-head b,summary{ font-family:var(--display); }
+.btn{ font-weight:700; font-size:.97rem; letter-spacing:0; }
+.nav a{ font-size:.95rem; font-weight:600; }
+summary{ font-family:var(--serif); font-weight:700; font-size:1.02rem; }
+.field input,.field select,.field textarea,.bot-form input,.bot-form textarea{ font-family:var(--display); }
+.msg{ font-family:var(--serif); font-size:.94rem; }
+
+.brand-name{ font-family:var(--serif); font-weight:700; font-size:1.1rem; letter-spacing:0; }
+.hero-brand-name{ font-family:var(--serif); font-weight:700; }
+.ops-row b,.rev-who b,.stat span{ font-family:var(--serif); }
+.vac-title{ font-family:var(--serif); font-weight:700; letter-spacing:0; }
+.review blockquote::before{ font-family:var(--serif); }
+</style>
+
+
 <style>
 :root{color-scheme:light dark; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
 html{-webkit-text-size-adjust:100%}
 img{max-width:100%}
 [hidden]{display:none!important}
 </style>
-</head>
-<body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+</head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <symbol id="i-consult" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 5h18M3 5v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5M9 20h6M12 16v4"/><path d="M7.5 12.5l2.6-3.2 2.1 2.1 3.6-4.3"/>
@@ -771,7 +835,6 @@ img{max-width:100%}
       <span class="brand-disc brand-disc-sm" role="img" aria-label="Devalokam Systems logo"></span>
       <span>
         <span class="brand-name">Devalokam Systems</span>
-        <span class="brand-sub">IT Infrastructure &amp; Support</span>
       </span>
     </a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
@@ -813,7 +876,6 @@ img{max-width:100%}
           <span class="brand-disc brand-disc-lg" role="img" aria-label="Devalokam Systems logo"></span>
           <span>
             <span class="hero-brand-name">Devalokam Systems</span>
-            <span class="eyebrow">IT Consulting &amp; Managed Infrastructure</span>
           </span>
         </div>
         <h1>Your security is <em>our priority.</em></h1>
@@ -836,7 +898,7 @@ img{max-width:100%}
       <div class="ops" role="group" aria-label="Service coverage summary">
         <div class="ops-top">
           <span class="ops-title">Coverage snapshot</span>
-          <span class="ops-live"><span class="pulse"></span>Sample</span>
+          <span class="ops-live"><span class="pulse"></span>Downtime cover</span>
         </div>
         <div class="ops-row">
           <span class="ico"><svg width="18" height="18" aria-hidden="true"><use href="#i-server"/></svg></span>
@@ -856,7 +918,7 @@ img{max-width:100%}
         <div class="ops-row">
           <span class="ico"><svg width="18" height="18" aria-hidden="true"><use href="#i-amc"/></svg></span>
           <span><b>Annual Maintenance Contract</b><span>Scheduled visits, spares, patch windows</span></span>
-          <span class="val">3 tiers<br><span class="muted" style="font-size:.68rem">Essential &rarr; Enterprise</span></span>
+          <span class="val">3 tiers<br><span class="muted" style="font-size:.68rem">Essential &ndash; Enterprise</span></span>
         </div>
         <div class="ops-foot">SLA TARGETS PUBLISHED IN EVERY CONTRACT &mdash; NOT BEST EFFORT</div>
       </div>
@@ -1434,16 +1496,60 @@ img{max-width:100%}
           <h4 class="vac-sub">Useful, not required</h4>
           <p style="color:var(--ink-2); font-size:.93rem">CCNA, MCSA or CompTIA A+/Network+; experience with Hyper-V or VMware; CCTV and NVR commissioning; gate automation or access control wiring; solar installation exposure.</p>
 
-          <div class="vac-apply">
+          <div class="vac-apply" style="flex-direction:column; align-items:stretch; gap:18px">
             <div>
               <h4 class="vac-sub" style="margin-bottom:6px">How to apply</h4>
-              <p style="color:var(--ink-2); font-size:.93rem; max-width:52ch">Send your CV with the subject line <strong>IT Technician &mdash; application</strong>. Tell us in a couple of lines about a fault you diagnosed that took more than one attempt. We reply to every application.</p>
+              <p style="color:var(--ink-2); font-size:.93rem; max-width:60ch">Upload your CV below and it goes straight to our sales desk &mdash; no mail app opens. Tell us in a couple of lines about a fault you diagnosed that took more than one attempt; we reply to every application.</p>
             </div>
-            <div class="hero-actions" style="padding-top:0">
-              <a class="btn btn-primary" href="mailto:sales@devalokamsystems.in?subject=IT%20Technician%20%E2%80%94%20application&amp;body=Please%20attach%20your%20CV%20to%20this%20email.%0A%0AName%3A%0APhone%3A%0AYears%20of%20experience%3A%0AA%20fault%20you%20diagnosed%20that%20took%20more%20than%20one%20attempt%3A%0A">Apply by email</a>
-              <a class="btn btn-wa" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20apply%20for%20the%20IT%20Technician%20role." target="_blank" rel="noopener">
-                <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Apply on WhatsApp
-              </a>
+
+            <form class="cv-form" id="cvForm" novalidate>
+              <div class="row2">
+                <div class="field" id="f-cv-name">
+                  <label for="cv-name">Your name</label>
+                  <input id="cv-name" name="name" type="text" autocomplete="name" placeholder="Your full name">
+                  <span class="err" id="e-cv-name" aria-live="polite"></span>
+                </div>
+                <div class="field" id="f-cv-phone">
+                  <label for="cv-phone">Phone</label>
+                  <input id="cv-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile">
+                  <span class="err" id="e-cv-phone" aria-live="polite"></span>
+                </div>
+              </div>
+              <div class="field" id="f-cv-email">
+                <label for="cv-email">Email</label>
+                <input id="cv-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+                <span class="err" id="e-cv-email" aria-live="polite"></span>
+              </div>
+              <div class="field" id="f-cv-note">
+                <label for="cv-note">A fault you diagnosed that took more than one attempt (optional)</label>
+                <textarea id="cv-note" name="note" placeholder="A couple of lines is enough."></textarea>
+              </div>
+              <div class="field" id="f-cv-file">
+                <label for="cv-file">Your CV / resume &mdash; PDF or Word, up to 5&nbsp;MB</label>
+                <input id="cv-file" name="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <span class="err" id="e-cv-file" aria-live="polite"></span>
+              </div>
+              <span class="err" id="e-cv-send" aria-live="assertive"></span>
+              <div class="hero-actions" style="padding-top:0">
+                <button class="btn btn-primary" id="cvSubmit" type="submit">Submit application <svg width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                <a class="btn btn-wa" href="https://wa.me/918089282351?text=Hi%20Devalokam%20Systems%2C%20I%27d%20like%20to%20apply%20for%20the%20IT%20Technician%20role." target="_blank" rel="noopener">
+                  <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Apply on WhatsApp
+                </a>
+              </div>
+              <p class="formnote">Prefer email? Write to <a href="mailto:sales@devalokamsystems.in?subject=IT%20Technician%20%E2%80%94%20application">sales@devalokamsystems.in</a> with your CV attached.</p>
+            </form>
+
+            <div class="sent" id="cvSent" hidden role="status">
+              <span class="ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <div>
+                <h2 style="font-size:1.18rem">Application received</h2>
+                <p class="formnote" style="margin-top:7px">Thank you &mdash; your CV has reached our sales desk. We reply to every application.</p>
+              </div>
+              <div class="hero-actions" style="padding-top:0">
+                <a class="btn btn-wa" href="https://wa.me/918089282351?text=Hi%2C%20I%20just%20submitted%20my%20CV%20for%20the%20IT%20Technician%20role." target="_blank" rel="noopener">
+                  <svg width="18" height="18" aria-hidden="true"><use href="#i-whatsapp"/></svg>Follow up on WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1900,6 +2006,84 @@ img{max-width:100%}
     });
   }
 
+  /* ---- careers: CV / resume upload ----------------------------------
+     Sent as multipart/form-data straight to FormSubmit (same endpoint as
+     the enquiry form) so the attached file reaches sales@devalokamsystems.in
+     without opening a mail app or leaving the page. FormSubmit's ajax
+     endpoint accepts FormData bodies with file fields directly — the
+     browser sets the multipart boundary automatically, so no
+     Content-Type header is set here on purpose.                          */
+  var cvForm = document.getElementById('cvForm');
+  var cvSent = document.getElementById('cvSent');
+  var CV_MAX_BYTES = 5 * 1024 * 1024;
+
+  if (cvForm) {
+    cvForm.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var name = document.getElementById('cv-name').value.trim();
+      var phone = document.getElementById('cv-phone').value.trim();
+      var email = document.getElementById('cv-email').value.trim();
+      var note = document.getElementById('cv-note').value.trim();
+      var fileInput = document.getElementById('cv-file');
+      var file = fileInput.files && fileInput.files[0];
+      var ok = true, firstBad = null;
+
+      if (name.length < 2) { setError('f-cv-name', 'e-cv-name', 'Enter your name.'); ok = false; firstBad = firstBad || 'cv-name'; }
+      else setError('f-cv-name', 'e-cv-name', '');
+
+      var digits = phone.replace(/\D/g, '');
+      if (digits.length < 10) { setError('f-cv-phone', 'e-cv-phone', 'Enter a phone number with at least 10 digits.'); ok = false; firstBad = firstBad || 'cv-phone'; }
+      else setError('f-cv-phone', 'e-cv-phone', '');
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setError('f-cv-email', 'e-cv-email', 'Enter an email address we can reply to.'); ok = false; firstBad = firstBad || 'cv-email'; }
+      else setError('f-cv-email', 'e-cv-email', '');
+
+      if (!file) { setError('f-cv-file', 'e-cv-file', 'Attach your CV as a PDF or Word document.'); ok = false; firstBad = firstBad || 'cv-file'; }
+      else if (!/\.(pdf|doc|docx)$/i.test(file.name)) { setError('f-cv-file', 'e-cv-file', 'Please attach a PDF or Word (.doc/.docx) file.'); ok = false; firstBad = firstBad || 'cv-file'; }
+      else if (file.size > CV_MAX_BYTES) { setError('f-cv-file', 'e-cv-file', 'That file is over 5 MB — please attach a smaller copy.'); ok = false; firstBad = firstBad || 'cv-file'; }
+      else setError('f-cv-file', 'e-cv-file', '');
+
+      if (!ok) { var bad = document.getElementById(firstBad); if (bad) bad.focus(); return; }
+
+      var btn = document.getElementById('cvSubmit');
+      var sendErr = document.getElementById('e-cv-send');
+      var original = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      sendErr.textContent = '';
+
+      var data = new FormData();
+      data.append('_subject', 'Website application — IT Technician — ' + name);
+      data.append('_template', 'table');
+      data.append('_captcha', 'false');
+      data.append('_replyto', email);
+      data.append('Name', name);
+      data.append('Phone', phone);
+      data.append('Email', email);
+      data.append('Role', 'IT Technician');
+      data.append('Note', note || 'Not given');
+      data.append('resume', file, file.name);
+
+      fetch(MAIL_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json().catch(function () { return {}; });
+        })
+        .then(function () {
+          cvForm.hidden = true;
+          cvSent.hidden = false;
+          cvSent.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        })
+        .catch(function () {
+          sendErr.textContent = 'We could not send that just now. Please message us on WhatsApp or email sales@devalokamsystems.in with your CV attached — your details are still in the form.';
+        })
+        .then(function () {
+          btn.disabled = false;
+          btn.innerHTML = original;
+        });
+    });
+  }
+
 
   /* ---- client reviews -------------------------------------------------
      Paste real Google reviews here. The section stays hidden while this
@@ -2227,6 +2411,4 @@ img{max-width:100%}
   })();
 })();
 </script>
-
-</body>
-</html>
+</body></html>
